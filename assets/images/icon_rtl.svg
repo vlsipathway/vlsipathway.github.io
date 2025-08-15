@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs><style>.bg{fill:#1F4D4E}.fg{fill:none;stroke:#D84A2A;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}</style></defs>
+  <circle class="bg" cx="128" cy="128" r="120"/>
+  <!-- Chip outline -->
+  <rect x="74" y="74" width="108" height="108" rx="10" class="fg"/>
+  <!-- Pins -->
+  <path class="fg" d="M74 96H44M74 128H44M74 160H44M182 96h30M182 128h30M182 160h30"/>
+  <!-- Waveform inside to represent RTL/verification -->
+  <path class="fg" d="M90 150l20-36 18 24 18-12 20 24"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs><style>.bg{fill:#1F4D4E}.fg{fill:none;stroke:#D84A2A;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}</style></defs>
+  <circle class="bg" cx="128" cy="128" r="120"/>
+  <!-- Terminal window -->
+  <rect x="56" y="76" width="144" height="104" rx="12" class="fg"/>
+  <path class="fg" d="M56 104h144"/>
+  <!-- Prompt & script gear-ish -->
+  <path class="fg" d="M80 128l24 16-24 16"/>
+  <path class="fg" d="M120 168h44"/>
+</svg>

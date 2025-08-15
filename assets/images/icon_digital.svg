@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs><style>.bg{fill:#1F4D4E}.fg{fill:none;stroke:#D84A2A;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}</style></defs>
+  <circle class="bg" cx="128" cy="128" r="120"/>
+  <!-- Simple SRAM / memory icon: stacked cells and row decoder arrow -->
+  <rect x="76" y="68" width="104" height="120" rx="10" class="fg"/>
+  <path class="fg" d="M100 80v96M128 80v96M156 80v96"/>
+  <path class="fg" d="M76 112h104M76 144h104"/>
+  <!-- Row decoder chevron on left -->
+  <path class="fg" d="M40 128h24m0 0l-16-16m16 16l-16 16"/>
+</svg>
