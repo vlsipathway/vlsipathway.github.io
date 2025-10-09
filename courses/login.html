@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Access Login - VLSI Pathway</title>
+    <!-- Use relative path to your main style.css -->
+    <link rel="stylesheet" href="../assets/css/style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        .login-container {
+            max-width: 420px;
+            margin: 100px auto;
+            padding: 40px;
+            background-color: var(--isabelline);
+            border-radius: var(--radius-10);
+            box-shadow: var(--shadow-2);
+            text-align: center;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--platinum);
+            border-radius: var(--radius-5);
+            font-size: var(--fs-5);
+        }
+        .login-container .btn {
+            width: 100%;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="h2 section-title">Student Course Login</h2>
+        <p class="section-text" style="font-size: var(--fs-5); margin-bottom: 20px;">
+            Access content using the Email and Key provided after payment.
+        </p>
+        
+        <form id="access-form" onsubmit="event.preventDefault(); checkSecureAccess();">
+            <input type="email" id="access-email" placeholder="Registered Email Address" required>
+            <input type="text" id="access-key" placeholder="Unique Access Key" required>
+            <button type="submit" class="btn has-before" id="login-button">
+                <span class="span">Unlock My Course</span>
+            </button>
+        </form>
+        <p id="error-message" style="color: var(--radical-red); margin-top: 15px; font-weight: var(--fw-500);"></p>
+        
+        <div style="margin-top: 30px; border-top: 1px solid var(--platinum); padding-top: 20px;">
+            <p style="font-size: var(--fs-6); color: var(--gray-web);">
+                Need to enroll? <a href="../courses/ltspice-preview.html" style="color: var(--kappel); text-decoration: underline;">View Course Details</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- The main script file containing the validation logic -->
+    <script src="../assets/js/script.js"></script> 
+</body>
+</html>
