@@ -20,7 +20,107 @@
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
 
-  <link rel="preload" as="image" href="../assets/images/hero-bg.svg">
+  <style>
+    /* COURSE HERO BANNER - Fixes thumbnail cropping issue */
+    .hero-banner .img-holder.course-banner {
+        /* Overriding index.html style to ensure 16:9 ratio */
+        aspect-ratio: 16 / 9;
+        max-height: 400px;
+        width: 100%;
+        max-width: 450px;
+        margin-inline: auto;
+        border-radius: var(--radius-10);
+        overflow: hidden;
+    }
+
+    /* CURRICULUM CONTAINER */
+    .course-curriculum {
+        padding: 40px 20px; /* Adjusted padding for mobile */
+        border-radius: var(--radius-10);
+        background-color: var(--white);
+        box-shadow: var(--shadow-2);
+        margin-top: 30px;
+    }
+
+    .course-curriculum .h3 {
+        font-size: var(--fs-3);
+        font-family: var(--ff-league_spartan);
+        font-weight: var(--fw-600);
+        margin-top: 40px;
+        border-bottom: 2px solid var(--platinum);
+        padding-bottom: 10px;
+        color: var(--eerie-black-1); /* Ensure titles are visible */
+    }
+    
+    .course-curriculum .h3:first-of-type {
+        margin-top: 0;
+    }
+
+    /* LECTURE LIST */
+    .lecture-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+    }
+
+    .lecture-list li {
+        border-bottom: 1px dashed var(--light-gray);
+        padding: 15px 0;
+    }
+
+    .lecture-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Allows wrapping on small screens */
+        gap: 10px;
+    }
+
+    .lecture-card .lecture-title {
+        font-size: var(--fs-5);
+        font-weight: var(--fw-600);
+        color: var(--eerie-black-1);
+        flex-grow: 1;
+    }
+
+    .lecture-card .lecture-duration {
+        font-size: var(--fs-6);
+        color: var(--quick-silver);
+        font-weight: var(--fw-500);
+        padding: 3px 10px;
+        border: 1px solid var(--platinum);
+        border-radius: var(--radius-3);
+    }
+
+    /* VIDEO EMBED ASPECT RATIO (16:9) */
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        margin-block: 15px;
+        border-radius: var(--radius-5);
+        background: var(--eerie-black-2);
+        box-shadow: var(--shadow-2);
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* MEDIA QUERIES for larger screens */
+    @media (min-width: 768px) {
+        .course-curriculum {
+            padding: 60px;
+        }
+    }
+  </style>
 
 </head>
 
@@ -93,22 +193,23 @@
   <main>
     <article>
 
-      <section class="section hero" id="course-header" aria-label="course-header">
+      <section class="section hero has-bg-image" id="course-header" aria-label="course-header"
+        style="background-image: url('../assets/images/hero-bg.svg'); padding-block-start: calc(var(--section-padding) + 90px);">
         <div class="container">
 
           <div class="hero-content">
 
-            <p class="section-subtitle" style="color: var(--spanish-pink); font-size: 18px;">Individual Core Program</p>
+            <p class="section-subtitle" style="color: var(--kappel); font-size: 18px; text-align: left;">Individual Core Program</p>
 
-            <h1 class="h1 section-title">
-              LT Spice : <span class="span">Beginner to Advanced</span> Level
+            <h1 class="h1 section-title" style="text-align: left;">
+              LT Spice : <span class="span" style="--color: var(--radical-red);">Beginner to Advanced</span> Level
             </h1>
 
-            <p class="hero-text">
+            <p class="hero-text" style="text-align: left; color: var(--eerie-black-1); margin-block-end: 20px;">
               Master the industry's essential simulation tool! Go from basic schematic capture to advanced CMOS circuit analysis and custom model integration.
             </p>
 
-            <ul class="about-list" style="margin-top: 20px;">
+            <ul class="about-list" style="margin-top: 10px;">
                 <li class="about-item">
                     <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
                     <span class="span">12 Modules | 3 Weeks | 36 Lectures</span>
@@ -131,8 +232,8 @@
           </div>
 
           <figure class="hero-banner">
-            <div class="img-holder one" style="--width: 270; --height: 300;">
-              <img src="../assets/images/course-1.jpg" width="270" height="300" alt="LTSpice Course Banner" class="img-cover">
+            <div class="img-holder course-banner" style="--width: 16; --height: 9;">
+              <img src="../assets/images/course-1.jpg" width="370" height="220" alt="LTSpice Course Banner" class="img-cover">
             </div>
           </figure>
 
@@ -141,97 +242,107 @@
 
       <div class="section" style="padding-top: 0;">
         <div class="container">
-            <h2 class="h2 section-title" style="margin-bottom: 30px;">Course Curriculum & Lecture Outline</h2>
+            <h2 class="h2 section-title" style="margin-bottom: 30px; text-align: left;">Course Curriculum & Lecture Outline</h2>
 
             <div class="course-curriculum">
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 1: Introduction (3 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
+                <h3 class="h3">Section 1: Introduction</h3>
+                <ul class="lecture-list">
                     <li>
                         <div class="lecture-card">
-                            <p class="lecture-title">Lecture 1: Who is this course for? <span class="badge" style="background-color: var(--citrine);">FREE PREVIEW</span></p>
+                            <p class="lecture-title">Lecture 1: Who is this course for?</p>
                             <p class="lecture-duration">5 min</p>
-                            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
-                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                                    src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID_HERE_L1?rel=0"
-                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                            <p style="margin-top: 10px; font-style: italic; color: #777;">**Note: This video is visible to everyone.**</p>
+                        </div>
+                        <p style="font-size: var(--fs-7); color: var(--radical-red); margin-top: 5px;">**FREE PREVIEW**</p>
+                        <div class="video-container">
+                            <iframe
+                                src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID_HERE_L1?rel=0"
+                                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </li>
-                    <li><p class="lecture-title">Lecture 2: Prerequisites (basic electronics knowledge, familiarity with circuits)</p> <p class="lecture-duration">12 min</p></li>
-                    <li><p class="lecture-title">Lecture 3: Course Roadmap</p> <p class="lecture-duration">7 min</p></li>
+                    <li>
+                        <div class="lecture-card">
+                            <p class="lecture-title">Lecture 2: Prerequisites (basic electronics knowledge, familiarity with circuits)</p>
+                            <p class="lecture-duration">12 min</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="lecture-card">
+                            <p class="lecture-title">Lecture 3: Course Roadmap</p>
+                            <p class="lecture-duration">7 min</p>
+                        </div>
+                    </li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 2: Getting Started with LTSpice (3 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 4: Downloading, setup, and introduction to the interface</p> <p class="lecture-duration">15 min</p></li>
-                    <li><p class="lecture-title">Lecture 5: Creating your first schematic</p> <p class="lecture-duration">10 min</p></li>
-                    <li><p class="lecture-title">Lecture 6: Toolbar and file menu basics (open, save, edit, etc.)</p> <p class="lecture-duration">8 min</p></li>
+                <h3 class="h3">Section 2: Getting Started with LTSpice</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 4: Downloading, setup, and introduction to the interface</p><p class="lecture-duration">15 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 5: Creating your first schematic</p><p class="lecture-duration">10 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 6: Toolbar and file menu basics (open, save, edit, etc.)</p><p class="lecture-duration">8 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 3: Customization and Workflow (3 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 7: Customizing schematics and waveform viewer</p> <p class="lecture-duration">11 min</p></li>
-                    <li><p class="lecture-title">Lecture 8: Control panel overview (colors, fonts, preferences)</p> <p class="lecture-duration">9 min</p></li>
-                    <li><p class="lecture-title">Lecture 9: Efficient navigation & tips</p> <p class="lecture-duration">6 min</p></li>
+                <h3 class="h3">Section 3: Customization and Workflow</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 7: Customizing schematics and waveform viewer</p><p class="lecture-duration">11 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 8: Control panel overview (colors, fonts, preferences)</p><p class="lecture-duration">9 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 9: Efficient navigation & tips</p><p class="lecture-duration">6 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 4: Understanding Analysis Commands (9 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 10: Introduction to analysis types</p> <p class="lecture-duration">10 min</p></li>
-                    <li><p class="lecture-title">Lecture 11: .op – Operating point analysis</p> <p class="lecture-duration">15 min</p></li>
-                    <li><p class="lecture-title">Lecture 12: .tran – Transient analysis</p> <p class="lecture-duration">20 min</p></li>
-                    <li><p class="lecture-title">Lecture 13: .dc – DC sweep</p> <p class="lecture-duration">18 min</p></li>
-                    <li><p class="lecture-title">Lecture 14: .step param – Parametric sweep</p> <p class="lecture-duration">16 min</p></li>
-                    <li><p class="lecture-title">Lecture 15: .tf – Transfer function analysis</p> <p class="lecture-duration">14 min</p></li>
-                    <li><p class="lecture-title">Lecture 16: .ac – AC analysis</p> <p class="lecture-duration">22 min</p></li>
-                    <li><p class="lecture-title">Lecture 17: .temp – Temperature sweep</p> <p class="lecture-duration">10 min</p></li>
-                    <li><p class="lecture-title">Lecture 18: Hands-on examples for each analysis</p> <p class="lecture-duration">25 min</p></li>
+                <h3 class="h3">Section 4: Understanding Analysis Commands</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 10: Introduction to analysis types</p><p class="lecture-duration">10 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 11: .op – Operating point analysis</p><p class="lecture-duration">15 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 12: .tran – Transient analysis</p><p class="lecture-duration">20 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 13: .dc – DC sweep</p><p class="lecture-duration">18 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 14: .step param – Parametric sweep</p><p class="lecture-duration">16 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 15: .tf – Transfer function analysis</p><p class="lecture-duration">14 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 16: .ac – AC analysis</p><p class="lecture-duration">22 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 17: .temp – Temperature sweep</p><p class="lecture-duration">10 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 18: Hands-on examples for each analysis</p><p class="lecture-duration">25 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 5: Learning Through Simple Circuits (2 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 19: Design and Simulation of Resistive divider circuit</p> <p class="lecture-duration">15 min</p></li>
-                    <li><p class="lecture-title">Lecture 20: Design and SImulation of a RC low-pass filter</p> <p class="lecture-duration">18 min</p></li>
+                <h3 class="h3">Section 5: Learning Through Simple Circuits</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 19: Design and Simulation of Resistive divider circuit</p><p class="lecture-duration">15 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 20: Design and SImulation of a RC low-pass filter</p><p class="lecture-duration">18 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 6: Symbols, Models, and Libraries (3 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 21: How to create a custom schematic symbol</p> <p class="lecture-duration">12 min</p></li>
-                    <li><p class="lecture-title">Lecture 22: Importing and using model files</p> <p class="lecture-duration">16 min</p></li>
-                    <li><p class="lecture-title">Lecture 23: Working with technology files (e.g., CMOS 180 nm PDK)</p> <p class="lecture-duration">14 min</p></li>
+                <h3 class="h3">Section 6: Symbols, Models, and Libraries</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 21: How to create a custom schematic symbol</p><p class="lecture-duration">12 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 22: Importing and using model files</p><p class="lecture-duration">16 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 23: Working with technology files (e.g., CMOS 180 nm PDK)</p><p class="lecture-duration">14 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 7: MOSFETs and Advanced Circuits (2 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 24: MOSFET characteristics using 180nm technology file</p> <p class="lecture-duration">20 min</p></li>
-                    <li><p class="lecture-title">Lecture 25: Plotting Id-Vgs, Id-Vds, gm, ro etc.</p> <p class="lecture-duration">25 min</p></li>
+                <h3 class="h3">Section 7: MOSFETs and Advanced Circuits</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 24: MOSFET characteristics using 180nm technology file</p><p class="lecture-duration">20 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 25: Plotting Id-Vgs, Id-Vds, gm, ro etc.</p><p class="lecture-duration">25 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 8: CMOS Circuit Design in LTSpice (5 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 26: CMOS Inverter design and analysis</p> <p class="lecture-duration">22 min</p></li>
-                    <li><p class="lecture-title">Lecture 27: DC transfer characteristics</p> <p class="lecture-duration">18 min</p></li>
-                    <li><p class="lecture-title">Lecture 28: Threshold voltage estimation</p> <p class="lecture-duration">15 min</p></li>
-                    <li><p class="lecture-title">Lecture 29: Noise margin calculation</p> <p class="lecture-duration">16 min</p></li>
-                    <li><p class="lecture-title">Lecture 30: Design and Simulation of CMOS logic gates (NAND, NOR etc)</p> <p class="lecture-duration">20 min</p></li>
+                <h3 class="h3">Section 8: CMOS Circuit Design in LTSpice</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 26: CMOS Inverter design and analysis</p><p class="lecture-duration">22 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 27: DC transfer characteristics</p><p class="lecture-duration">18 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 28: Threshold voltage estimation</p><p class="lecture-duration">15 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 29: Noise margin calculation</p><p class="lecture-duration">16 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 30: Design and Simulation of CMOS logic gates (NAND, NOR etc)</p><p class="lecture-duration">20 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 9: Resources and Extras (3 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 31: Providing technology files (e.g., 180nm CMOS)</p> <p class="lecture-duration">5 min</p></li>
-                    <li><p class="lecture-title">Lecture 32: Recommended books and articles for deeper learning</p> <p class="lecture-duration">7 min</p></li>
-                    <li><p class="lecture-title">Lecture 33: Troubleshooting common LTSpice errors</p> <p class="lecture-duration">10 min</p></li>
+                <h3 class="h3">Section 9: Resources and Extras</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 31: Providing technology files (e.g., 180nm CMOS)</p><p class="lecture-duration">5 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 32: Recommended books and articles for deeper learning</p><p class="lecture-duration">7 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 33: Troubleshooting common LTSpice errors</p><p class="lecture-duration">10 min</p></div></li>
                 </ul>
 
-                <h3 class="h3" style="color: var(--spanish-pink); margin-top: 40px; border-bottom: 2px solid var(--black-2); padding-bottom: 5px;">Section 10: Wrap-Up (3 Lectures)</h3>
-                <ul class="lecture-list grid-list" style="margin-top: 20px;">
-                    <li><p class="lecture-title">Lecture 34: Final thoughts</p> <p class="lecture-duration">5 min</p></li>
-                    <li><p class="lecture-title">Lecture 35: Real-world applications of LTSpice</p> <p class="lecture-duration">8 min</p></li>
-                    <li><p class="lecture-title">Lecture 36: Next steps for learners (moving towards VLSI/Analog IC design)</p> <p class="lecture-duration">10 min</p></li>
+                <h3 class="h3">Section 10: Wrap-Up</h3>
+                <ul class="lecture-list">
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 34: Final thoughts</p><p class="lecture-duration">5 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 35: Real-world applications of LTSpice</p><p class="lecture-duration">8 min</p></div></li>
+                    <li><div class="lecture-card"><p class="lecture-title">Lecture 36: Next steps for learners (moving towards VLSI/Analog IC design)</p><p class="lecture-duration">10 min</p></div></li>
                 </ul>
 
                 <a href="#" class="btn has-before" style="margin-top: 50px; display: block; max-width: 300px; margin-left: auto; margin-right: auto; text-align: center;">
