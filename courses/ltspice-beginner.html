@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LT Spice: Beginner to Advanced Level – VLSI Pathway</title>
-  <meta name="title" content="LT Spice: Beginner to Advanced Level – VLSI Pathway">
-  <meta name="description" content="Master LTSpice from the ground up, covering schematic entry, all analysis types (.tran, .ac, .dc), MOSFET modeling, and CMOS circuit design.">
+  <title>Practical LTSpice: From Basics to CMOS Circuits – VLSI Pathway</title>
+  <meta name="title" content="Practical LTSpice: From Basics to CMOS Circuits – VLSI Pathway">
+  <meta name="description" content="Master LTSpice for VLSI and IC design, covering all analysis types, MOSFET characterization, and CMOS digital circuit implementation (NAND, NOR, Full Adder).">
 
   <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
 
@@ -21,6 +21,33 @@
     rel="stylesheet">
 
   <style>
+    /* RESPONSIVE FIXES AND OVERRIDES */
+    @media (min-width: 992px) {
+        /* Allow the course page content to breathe more horizontally */
+        .course-page-container { 
+            max-width: 95%; 
+            width: 100%; 
+            margin-inline: auto;
+            padding-inline: 15px; /* Ensure padding is consistent */
+        }
+        
+        /* Fix the layout for the hero section to be two columns on large screens */
+        .hero .container {
+            grid-template-columns: 1fr 0.8fr; /* Content slightly wider than image */
+            gap: 60px;
+        }
+
+        .hero-content {
+            padding-block-start: 40px; /* Add some vertical space on top */
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .course-page-container { 
+            max-width: 1200px;
+        }
+    }
+    
     /* COURSE HERO BANNER - Fixes thumbnail cropping issue */
     .hero-banner .img-holder.course-banner {
         /* Overriding index.html style to ensure 16:9 ratio */
@@ -31,6 +58,7 @@
         margin-inline: auto;
         border-radius: var(--radius-10);
         overflow: hidden;
+        margin-top: 40px; /* Space from content title on mobile */
     }
 
     /* CURRICULUM CONTAINER */
@@ -85,7 +113,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap; /* Allows wrapping on small screens */
+        flex-wrap: wrap; 
         gap: 10px;
     }
 
@@ -104,6 +132,7 @@
         padding: 3px 10px;
         border: 1px solid var(--platinum);
         border-radius: var(--radius-3);
+        flex-shrink: 0; /* Prevents duration box from shrinking */
     }
 
     /* VIDEO CONTENT HIDE/SHOW LOGIC */
@@ -112,7 +141,6 @@
         padding-top: 15px;
     }
     
-    /* JavaScript will add the 'active' class to the parent <li> to show the content */
     .lecture-toggler.active .lecture-video-content {
         display: block;
     }
@@ -139,13 +167,6 @@
         height: 100%;
         border: none;
     }
-
-    /* MEDIA QUERIES for larger screens */
-    @media (min-width: 768px) {
-        .course-curriculum {
-            padding: 60px;
-        }
-    }
   </style>
 
 </head>
@@ -153,66 +174,40 @@
 <body id="top">
 
   <header class="header" data-header>
-    <div class="container">
+    <div class="container course-page-container">
 
       <a href="../index.html" class="logo">
         <img src="../assets/images/logo-light (2).svg" width="162" height="50" alt="VLSI Pathway logo">
       </a>
 
       <nav class="navbar" data-navbar>
-
         <div class="wrapper">
           <a href="../index.html" class="logo">
             <img src="../assets/images/logo-light (2).svg" width="162" height="50" alt="VLSI Pathway logo">
           </a>
-
           <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
             <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
           </button>
         </div>
-
         <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <a href="../index.html#home" class="navbar-link" data-nav-link>Home</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="../index.html#about" class="navbar-link" data-nav-link>About</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="../index.html#courses" class="navbar-link" data-nav-link>Courses</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="../index.html#blog" class="navbar-link" data-nav-link>Blog</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="../index.html#footer" class="navbar-link" data-nav-link>Contact</a>
-          </li>
-
+          <li class="navbar-item"><a href="../index.html#home" class="navbar-link" data-nav-link>Home</a></li>
+          <li class="navbar-item"><a href="../index.html#about" class="navbar-link" data-nav-link>About</a></li>
+          <li class="navbar-item"><a href="../index.html#courses" class="navbar-link" data-nav-link>Courses</a></li>
+          <li class="navbar-item"><a href="../index.html#blog" class="navbar-link" data-nav-link>Blog</a></li>
+          <li class="navbar-item"><a href="../index.html#footer" class="navbar-link" data-nav-link>Contact</a></li>
         </ul>
-
       </nav>
 
       <div class="header-actions">
-
         <a href="../index.html#Paths" class="btn has-before">
           <span class="span">Explore Paths</span>
-
           <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
         </a>
-
         <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
           <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
         </button>
-
       </div>
-
       <div class="overlay" data-nav-toggler data-overlay></div>
-
     </div>
   </header>
 
@@ -221,32 +216,32 @@
 
       <section class="section hero has-bg-image" id="course-header" aria-label="course-header"
         style="background-image: url('../assets/images/hero-bg.svg'); padding-block-start: calc(var(--section-padding) + 90px);">
-        <div class="container">
+        <div class="container course-page-container">
 
           <div class="hero-content">
 
             <p class="section-subtitle" style="color: var(--kappel); font-size: 18px; text-align: left;">Individual Core Program</p>
 
             <h1 class="h1 section-title" style="text-align: left;">
-              LT Spice : <span class="span" style="--color: var(--radical-red);">Beginner to Advanced</span> Level
+              Practical LTSpice: From <span class="span" style="--color: var(--radical-red);">Basics to CMOS</span> Circuits
             </h1>
 
             <p class="hero-text" style="text-align: left; color: var(--eerie-black-1); margin-block-end: 20px;">
-              Master the industry's essential simulation tool! Go from basic schematic capture to advanced CMOS circuit analysis and custom model integration.
+              LTSpice is a free yet powerful circuit simulation tool widely used in electronics, VLSI, and IC design. Master it to strengthen your ability to design, analyze, and test electronic circuits.
             </p>
 
             <ul class="about-list" style="margin-top: 10px;">
                 <li class="about-item">
                     <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-                    <span class="span">12 Modules | 3 Weeks | 36 Lectures</span>
+                    <span class="span">Perform essential analyses (.op, .tran, .ac, .tf, .step, .temp)</span>
                 </li>
                 <li class="about-item">
                     <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-                    <span class="span">Hands-on Labs and Industry-Standard Projects</span>
+                    <span class="span">Characterize MOSFETs using 180nm CMOS technology</span>
                 </li>
                 <li class="about-item">
                     <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-                    <span class="span">Includes 180nm CMOS Technology Files</span>
+                    <span class="span">Design and simulate CMOS digital logic (NAND, NOR, Full Adder)</span>
                 </li>
             </ul>
 
@@ -266,9 +261,44 @@
         </div>
       </section>
 
+      <section class="section about" style="padding-block-start: 40px;">
+        <div class="container course-page-container">
+            <div class="about-content">
+                <p class="section-subtitle" style="text-align: left; color: var(--radical-red);">Why This Course?</p>
+                <h2 class="h2 section-title" style="text-align: left;">
+                    In-depth, <span class="span" style="--color: var(--kappel);">Practical Learning</span> with LTSpice
+                </h2>
+                <p class="section-text" style="text-align: left;">
+                    This course takes you on a step-by-step journey, starting from the fundamentals of LTSpice, building simple circuits, and performing essential analyses. You will then progress toward advanced topics, including **MOSFET characterization**, **CMOS inverter analysis**, and digital circuit implementation such as NAND, NOR, and Full Adder design using **CMOS technology files**.
+                </p>
+                <p class="section-text" style="text-align: left; margin-block-start: 0;">
+                    The focus is practical learning — every concept is explained through examples, hands-on circuit design, and real-world applications. You’ll also gain access to technology files, reference materials, and troubleshooting tips to confidently work on your own projects.
+                </p>
+
+                <h3 class="h3" style="text-align: left; margin-block-start: 30px;">What You'll Achieve:</h3>
+                <ul class="about-list">
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Create, customize, and simulate circuits in LTSpice</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Perform all essential analyses (.op, .tran, .dc, .ac, .tf, .step, .temp)</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Work with model files and create custom symbols</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Characterize MOSFET devices using 180nm CMOS technology</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Design and simulate CMOS inverters, logic gates, and a full adder</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Apply LTSpice to practical projects like ring oscillators and op-amp circuits</span></li>
+                </ul>
+
+                <h3 class="h3" style="text-align: left; margin-block-start: 30px;">Who Is This Course For:</h3>
+                <ul class="about-list">
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Electronics and Electrical Engineering students needing strong simulation skills.</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">Researchers and project students working with analog or digital circuits.</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">VLSI and IC design enthusiasts wanting to explore CMOS circuit behavior.</span></li>
+                    <li class="about-item"><ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon><span class="span">No prior LTSpice experience is needed. Basic circuit knowledge is the only prerequisite.</span></li>
+                </ul>
+            </div>
+        </div>
+      </section>
+
       <div class="section" style="padding-top: 0;">
-        <div class="container">
-            <h2 class="h2 section-title" style="margin-bottom: 30px; text-align: left;">Course Curriculum & Lecture Outline</h2>
+        <div class="container course-page-container">
+            <h2 class="h2 section-title" style="margin-bottom: 30px; text-align: left;">Course Curriculum & Lecture Outline (36 Lectures)</h2>
 
             <div class="course-curriculum">
 
@@ -280,7 +310,6 @@
                             <p class="lecture-duration">5 min</p>
                         </div>
                         <p style="font-size: var(--fs-7); color: var(--radical-red); margin-top: 5px;">**FREE PREVIEW**</p>
-                        
                         <div class="lecture-video-content" style="display: block;">
                             <div class="video-container">
                                 <iframe
@@ -297,14 +326,10 @@
                             <p class="lecture-title">Lecture 2: Prerequisites (basic electronics knowledge, familiarity with circuits)</p>
                             <p class="lecture-duration">12 min</p>
                         </div>
-                         <div class="lecture-video-content">
+                        <div class="lecture-video-content">
                             <p style="font-size: var(--fs-7); color: var(--gray-web); margin-top: 5px;">*This lecture is accessible upon enrollment.*</p>
                             <div class="video-container">
-                                <iframe
-                                    src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID_HERE_L2?rel=0"
-                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID_HERE_L2?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </li>
@@ -314,14 +339,10 @@
                             <p class="lecture-title">Lecture 3: Course Roadmap</p>
                             <p class="lecture-duration">7 min</p>
                         </div>
-                         <div class="lecture-video-content">
+                        <div class="lecture-video-content">
                             <p style="font-size: var(--fs-7); color: var(--gray-web); margin-top: 5px;">*This lecture is accessible upon enrollment.*</p>
                             <div class="video-container">
-                                <iframe
-                                    src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID_HERE_L3?rel=0"
-                                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_ID_HERE_L3?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </li>
@@ -410,7 +431,7 @@
   <footer class="footer" id="footer" style="background-image: url('../assets/images/footer-bg.png')">
 
     <div class="footer-top section">
-      <div class="container grid-list">
+      <div class="container course-page-container grid-list">
 
         <div class="footer-brand">
 
@@ -550,8 +571,8 @@
         
         toggler.addEventListener('click', function(event) {
             
-            // Prevent the click from propagating if it hits a sub-link/button inside the card
-            if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON' || event.target.tagName === 'IFRAME') {
+            // Prevent the click from propagating if it hits a sub-link/button/iframe inside the card
+            if (event.target.closest('.video-container') || event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
                 return;
             }
 
@@ -560,18 +581,29 @@
 
             // 1. Close all currently active lecture videos (Accordion style)
             document.querySelectorAll('.lecture-toggler.active').forEach(activeToggler => {
-                activeToggler.classList.remove('active');
-                
-                // OPTIONAL: Stop the video playback when the lecture folds up
-                const activeVideoIframe = activeToggler.querySelector('.lecture-video-content iframe');
-                if (activeVideoIframe) {
-                    activeVideoIframe.src = activeVideoIframe.src; // Reloads iframe, stopping video
+                // Only close if it's not the lecture being clicked
+                if (activeToggler !== this) {
+                    activeToggler.classList.remove('active');
+                    
+                    // Stop the video playback when the lecture folds up
+                    const activeVideoIframe = activeToggler.querySelector('.lecture-video-content iframe');
+                    if (activeVideoIframe) {
+                        // Reset the src to stop video playback
+                        activeVideoIframe.src = activeVideoIframe.src; 
+                    }
                 }
             });
 
             // 2. If the clicked lecture was NOT active, make it active
             if (!isActive) {
                 this.classList.add('active');
+            } else {
+                // If it was active, clicking it again closes it (which happened in step 1, but we need to stop the video)
+                const currentVideoIframe = this.querySelector('.lecture-video-content iframe');
+                if (currentVideoIframe) {
+                    currentVideoIframe.src = currentVideoIframe.src; 
+                }
+                this.classList.remove('active');
             }
         });
     });
