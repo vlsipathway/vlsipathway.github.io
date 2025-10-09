@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURE ACCESS: LTSpice Full Course - VLSI Pathway</title>
+    <link rel="stylesheet" href="../assets/css/style.css"> 
+    <style>
+        .section-title { text-align: left; }
+        .h3 { font-size: 2.3rem; margin-block-start: 40px; border-bottom: 2px solid var(--platinum); padding-bottom: 10px; }
+        .lecture-list { list-style: none; padding: 0; }
+        .lecture-toggler { cursor: pointer; padding: 15px 0; border-bottom: 1px dashed var(--light-gray); }
+        .lecture-toggler:hover .lecture-title { color: var(--kappel); }
+        .lecture-toggler.active .lecture-title { color: var(--radical-red); }
+        .lecture-card { display: flex; justify-content: space-between; align-items: center; }
+        .lecture-title { font-weight: 600; font-size: 1.5rem; }
+        .lecture-duration { font-style: italic; color: var(--gray-web); font-size: 1.4rem; }
+        .lecture-video-content { display: none; padding-top: 15px; }
+        .lecture-toggler.active .lecture-video-content { display: block; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-block: 15px; background: #000; border-radius: 8px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .logout-button {
+             color: var(--radical-red); background: none; border: 2px solid var(--radical-red); padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 class="h2 section-title" style="margin: 0;">LTSpice Full Course Content</h2>
+                <button onclick="sessionStorage.clear(); window.location.replace('./login.html');" class="logout-button">
+                    Logout
+                </button>
+            </div>
+            <p style="margin-bottom: 30px;">
+                Access granted to: <span id="user-display" style="font-weight: bold;"></span>. Thank you for enrolling!
+            </p>
+
+            <div class="course-curriculum">
+
+                <!-- SECTION 1: Introduction -->
+                <h3 class="h3">Section 1: Introduction</h3>
+                <ul class="lecture-list">
+                    <li class="lecture-toggler">
+                        <div class="lecture-card">
+                            <p class="lecture-title">Lecture 1: Who is this course for? (Preview)</p>
+                            <p class="lecture-duration">5 min</p>
+                        </div>
+                        <div class="lecture-video-content">
+                            <div class="video-container">
+                                <!-- REPLACE YOUTUBE_ID_L1 -->
+                                <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L1?rel=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="lecture-toggler">
+                        <div class="lecture-card">
+                            <p class="lecture-title">Lecture 2: Prerequisites</p>
+                            <p class="lecture-duration">12 min</p>
+                        </div>
+                        <div class="lecture-video-content">
+                            <div class="video-container">
+                                <!-- REPLACE YOUTUBE_ID_L2 -->
+                                <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L2?rel=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- *** ADD ALL REMAINING 34 LECTURES HERE WITH THEIR YOUTUBE EMBED IDs *** -->
+                    <li class="lecture-toggler">
+                        <div class="lecture-card">
+                            <p class="lecture-title">Lecture 36: Next Steps for Learners</p>
+                            <p class="lecture-duration">10 min</p>
+                        </div>
+                        <div class="lecture-video-content">
+                            <div class="video-container">
+                                <!-- REPLACE YOUTUBE_ID_L36 -->
+                                <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L36?rel=0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- End of Curriculum -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- This script is vital for enforcing the access lock and enabling the video accordion -->
+    <script src="../assets/js/script.js"></script> 
+    <script>
+        // Display user's email once logged in
+        document.getElementById('user-display').textContent = sessionStorage.getItem('vlsi_user_email') || 'Guest';
+    </script>
+</body>
+</html>
