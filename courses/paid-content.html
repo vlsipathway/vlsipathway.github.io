@@ -120,22 +120,21 @@
     <!-- This script is vital for enforcing the access lock and enabling the video accordion -->
     <script src="../assets/js/script.js" defer></script> 
     <script>
-        // This small script ONLY runs AFTER the security check in script.js has already passed and redirected here.
-        // It immediately finds the content wrapper and unlocks it, ensuring content visibility.
-        (function() {
+        // This final script block runs immediately after the page loads to reveal content if authorized.
+        window.onload = function() {
             const userEmail = sessionStorage.getItem('vlsi_user_email');
             const mainContent = document.getElementById('main-course-content');
             const loadingScreen = document.getElementById('loading-screen');
 
-            // 1. Hide loading and show main content
+            // 1. Hide loading screen
             if (loadingScreen) loadingScreen.style.display = 'none';
-            if (mainContent) mainContent.style.display = 'block'; 
             
-            // 2. Display the user email
-            if (userEmail) {
-                document.getElementById('user-display').textContent = userEmail;
+            // 2. Show main content and display user email
+            if (userEmail && mainContent) {
+                 mainContent.style.display = 'block'; 
+                 document.getElementById('user-display').textContent = userEmail;
             }
-        })();
+        };
     </script>
 </body>
 </html>
