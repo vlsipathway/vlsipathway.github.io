@@ -3,7 +3,8 @@
 //----------------------------------------------------------------------
 // CONFIGURATION: GOOGLE APPS SCRIPT URL
 //----------------------------------------------------------------------
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQe8OHlaHetbZryPD6Fe57EkPEgfrmwIwY9bFuy1Ev42EogvT_-7A5AQltKkF_TrUN2w/exec"; 
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGgGzSFEDYomU-fkl-fCTeLOuVk6RlxqrID0g0EiDB6TuyYlHRV36QUvHlwHpe7FFYFQ/exec";
+
 const SECURE_CONTENT_URL = "./paid-content.html";
 const LOGIN_PAGE_URL = "./login.html";
 
