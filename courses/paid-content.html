@@ -120,19 +120,36 @@
     <!-- This script is vital for enforcing the access lock and enabling the video accordion -->
     <script src="../assets/js/script.js" defer></script> 
     <script>
-        // This final script block runs immediately after the page loads to reveal content if authorized.
+        // This function runs the moment the page finishes loading its content structure.
         window.onload = function() {
             const userEmail = sessionStorage.getItem('vlsi_user_email');
             const mainContent = document.getElementById('main-course-content');
             const loadingScreen = document.getElementById('loading-screen');
 
-            // 1. Hide loading screen
-            if (loadingScreen) loadingScreen.style.display = 'none';
-            
-            // 2. Show main content and display user email
-            if (userEmail && mainContent) {
-                 mainContent.style.display = 'block'; 
-                 document.getElementById('user-display').textContent = userEmail;
+            // Check the current path to ensure we only proceed if we are on the paid page
+            const currentPath = window.location.pathname;
+            const SECURE_CONTENT_URL_PARTIAL = 'paid-content.html';
+
+            if (currentPath.includes(SECURE_CONTENT_URL_PARTIAL)) {
+                
+                if (sessionStorage.getItem('vlsi_access_granted') === 'true') {
+                    // ACCESS GRANTED: 
+                    // 1. Hide the loading screen
+                    if (loadingScreen) loadingScreen.style.display = 'none';
+                    
+                    // 2. Show the main content
+                    if (mainContent) mainContent.style.display = 'block'; 
+                    
+                    // 3. Display the user email
+                    if (userEmail) {
+                        document.getElementById('user-display').textContent = userEmail;
+                    }
+
+                } else {
+                    // This block should ideally not be reached, as script.js should already have redirected.
+                    // But if it is reached, we force the redirect.
+                    window.location.replace('./login.html');
+                }
             }
         };
     </script>
