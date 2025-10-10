@@ -39,7 +39,13 @@ function checkSecureAccess() {
     const url = `${APPS_SCRIPT_URL}?key=${encodeURIComponent(submittedKey)}&email=${encodeURIComponent(submittedEmail)}`;
 
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+             if (!response.ok) {
+                 // Check for HTTP errors (e.g., 404, 500)
+                 throw new Error('API request failed with status: ' + response.status);
+             }
+             return response.json();
+         })
         .then(data => {
             if (data.success === true) {
                 // ACCESS GRANTED: Set session flag and redirect to the secure page
@@ -52,8 +58,9 @@ function checkSecureAccess() {
             }
         })
         .catch(error => {
-            console.error("API Call Failed:", error);
-            errorMessage.textContent = "A server error occurred. Please try again later.";
+            console.error("Fetch Error:", error);
+            // Display a generic but helpful error message for the user
+            errorMessage.textContent = "Connection error. Please ensure your key and email are correct and try again.";
         })
         .finally(() => {
             // Re-enable the button
@@ -65,7 +72,7 @@ function checkSecureAccess() {
 
 /**
  * Enforces the access gate on the paid content page.
- * This runs before the page content is shown (due to the defer attribute).
+ * This runs when the DOM is loaded to check if the user is authorized.
  */
 function enforceAccessGate() {
     const currentPath = window.location.pathname;
@@ -73,7 +80,7 @@ function enforceAccessGate() {
     const loadingScreen = document.getElementById('loading-screen');
 
     // Check if we are on the paid content page (SECURE_CONTENT_URL)
-    // The currentPath check is made more robust here.
+    // We check against the file name since the path varies across environments.
     if (currentPath.includes(SECURE_CONTENT_URL.substring(2))) { 
         if (sessionStorage.getItem('vlsi_access_granted') !== 'true') {
             // SECURITY FAILURE: Redirect to login page
@@ -94,8 +101,8 @@ function enforceAccessGate() {
     }
 }
 
-// Ensure the enforcement check runs right after the script loads
-enforceAccessGate();
+// Attach the enforcement check to run when the page loads
+document.addEventListener('DOMContentLoaded', enforceAccessGate);
 
 
 //----------------------------------------------------------------------
