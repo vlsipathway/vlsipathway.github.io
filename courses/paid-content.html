@@ -36,9 +36,47 @@
              color: var(--radical-red); background: none; border: 2px solid var(--radical-red); padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: 600;
         }
     </style>
+    <!-- We load the main script file first to enable the enforceAccessGate function -->
+    <script src="../assets/js/script.js" defer></script> 
 </head>
 <body>
     
+    <script>
+        // CRITICAL IN-PAGE SCRIPT: This runs BEFORE the main content wrapper is loaded.
+        // It checks the session flag instantly and decides whether to redirect or proceed.
+        // It's the most reliable way to enforce the lock in a static environment.
+        const SECURE_CONTENT_URL_PARTIAL = 'paid-content.html';
+        const LOGIN_PAGE_URL = './login.html';
+        
+        // Check if the secure access flag exists. If not, redirect immediately.
+        if (window.location.pathname.includes(SECURE_CONTENT_URL_PARTIAL) && 
+            sessionStorage.getItem('vlsi_access_granted') !== 'true') {
+            
+            // SECURITY FAILURE: Redirect immediately before showing any content
+            window.location.replace(LOGIN_PAGE_URL);
+        }
+        
+        // If we reach this point, access is implicitly granted (or user is logged in).
+        
+        // This function will run once the full page is loaded to display the content.
+        window.onload = function() {
+            const userEmail = sessionStorage.getItem('vlsi_user_email');
+            const mainContent = document.getElementById('main-course-content');
+            const loadingScreen = document.getElementById('loading-screen');
+
+            // 1. Hide the loading screen
+            if (loadingScreen) loadingScreen.style.display = 'none';
+            
+            // 2. Show the main content (which was hidden by CSS)
+            if (mainContent) mainContent.style.display = 'block'; 
+            
+            // 3. Display the user email
+            if (userEmail) {
+                document.getElementById('user-display').textContent = userEmail;
+            }
+        };
+    </script>
+
     <!-- LOADING SCREEN: This is the first thing visible. -->
     <div id="loading-screen">
         <h2 style="color: var(--eerie-black-1);">Verifying Access...</h2>
@@ -116,36 +154,5 @@
         
     </div>
     <!-- END OF SECURE CONTENT WRAPPER -->
-    
-    <!-- This script is vital for enforcing the access lock and enabling the video accordion -->
-    <script src="../assets/js/script.js" defer></script> 
-    <script>
-        // This function runs the moment the page finishes loading its content structure.
-        window.onload = function() {
-            const userEmail = sessionStorage.getItem('vlsi_user_email');
-            const mainContent = document.getElementById('main-course-content');
-            const loadingScreen = document.getElementById('loading-screen');
-
-            // This entire check runs only AFTER the security check in script.js has already passed and redirected here.
-            
-            if (sessionStorage.getItem('vlsi_access_granted') === 'true') {
-                // ACCESS GRANTED: 
-                // 1. Hide the loading screen
-                if (loadingScreen) loadingScreen.style.display = 'none';
-                
-                // 2. Show the main content
-                if (mainContent) mainContent.style.display = 'block'; 
-                
-                // 3. Display the user email
-                if (userEmail) {
-                    document.getElementById('user-display').textContent = userEmail;
-                }
-
-            } else {
-                // This path should only be hit if the URL was typed directly.
-                window.location.replace('./login.html');
-            }
-        };
-    </script>
 </body>
 </html>
