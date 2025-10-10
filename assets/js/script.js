@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------
 
 // *** PASTE THE /exec URL YOU COPIED FROM GOOGLE APPS SCRIPT IN STEP 5 ***
-const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL_HERE"; 
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQe8OHlaHetbZryPD6Fe57EkPEgfrmwIwY9bFuy1Ev42EogvT_-7A5AQltKkF_TrUN2w/exec"; 
 const SECURE_CONTENT_URL = "./paid-content.html";
 const LOGIN_PAGE_URL = "./login.html";
 
