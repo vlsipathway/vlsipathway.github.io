@@ -1,8 +1,10 @@
+'use strict';
+
 //----------------------------------------------------------------------
 // CONFIGURATION: PASTE YOUR GOOGLE APPS SCRIPT URL HERE
 //----------------------------------------------------------------------
 
-// *** PASTE THE /exec URL YOU COPIED FROM GOOGLE APPS SCRIPT HERE ***
+// *** PASTE THE /exec URL YOU COPIED FROM GOOGLE APPS SCRIPT IN STEP 5 ***
 const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL_HERE"; 
 const SECURE_CONTENT_URL = "./paid-content.html";
 const LOGIN_PAGE_URL = "./login.html";
@@ -63,6 +65,7 @@ function checkSecureAccess() {
 
 /**
  * Enforces the access gate on the paid content page.
+ * This runs before the page content is shown (due to the defer attribute).
  */
 function enforceAccessGate() {
     const currentPath = window.location.pathname;
@@ -70,6 +73,7 @@ function enforceAccessGate() {
     const loadingScreen = document.getElementById('loading-screen');
 
     // Check if we are on the paid content page (SECURE_CONTENT_URL)
+    // The currentPath check is made more robust here.
     if (currentPath.includes(SECURE_CONTENT_URL.substring(2))) { 
         if (sessionStorage.getItem('vlsi_access_granted') !== 'true') {
             // SECURITY FAILURE: Redirect to login page
@@ -81,18 +85,24 @@ function enforceAccessGate() {
             if (mainContent) {
                  mainContent.style.display = 'block';
             }
+            // Display user's email if the element exists
+            const userDisplay = document.getElementById('user-display');
+            if (userDisplay) {
+                 userDisplay.textContent = sessionStorage.getItem('vlsi_user_email') || '';
+            }
         }
     }
 }
 
-// Attach the enforcement check to run when the page loads
-document.addEventListener('DOMContentLoaded', enforceAccessGate);
+// Ensure the enforcement check runs right after the script loads
+enforceAccessGate();
 
 
 //----------------------------------------------------------------------
-// 2. EXISTING NAVIGATION TOGGLE LOGIC (Kept from original index.html)
+// 2. EXISTING NAVIGATION AND ACCORDION LOGIC
 //----------------------------------------------------------------------
 
+// --- Existing Navigation Code ---
 const addEventOnElem = function (elem, type, callback) {
     if (elem.length > 1) {
         for (let i = 0; i < elem.length; i++) {
@@ -138,39 +148,38 @@ const activeElem = function () {
 addEventOnElem(window, "scroll", activeElem);
 
 
-//----------------------------------------------------------------------
-// 3. ACCORDION (Content Toggle) LOGIC (Kept from original plan)
-//----------------------------------------------------------------------
+// --- Accordion Toggle Logic ---
+document.addEventListener('DOMContentLoaded', function() {
+    const lectureTogglers = document.querySelectorAll('.lecture-toggler');
 
-const lectureTogglers = document.querySelectorAll('.lecture-toggler');
+    lectureTogglers.forEach(toggler => {
+        toggler.addEventListener('click', function(event) {
+            
+            if (event.target.closest('.video-container') || event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
+                return;
+            }
 
-lectureTogglers.forEach(toggler => {
-    toggler.addEventListener('click', function(event) {
-        
-        if (event.target.closest('.video-container') || event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
-            return;
-        }
+            const isActive = this.classList.contains('active');
 
-        const isActive = this.classList.contains('active');
-
-        document.querySelectorAll('.lecture-toggler.active').forEach(activeToggler => {
-            if (activeToggler !== this) {
-                activeToggler.classList.remove('active');
-                const activeVideoIframe = activeToggler.querySelector('.lecture-video-content iframe');
-                if (activeVideoIframe) {
-                    activeVideoIframe.src = activeVideoIframe.src; 
+            document.querySelectorAll('.lecture-toggler.active').forEach(activeToggler => {
+                if (activeToggler !== this) {
+                    activeToggler.classList.remove('active');
+                    const activeVideoIframe = activeToggler.querySelector('.lecture-video-content iframe');
+                    if (activeVideoIframe) {
+                        activeVideoIframe.src = activeVideoIframe.src; 
+                    }
                 }
+            });
+
+            if (!isActive) {
+                this.classList.add('active');
+            } else {
+                const currentVideoIframe = this.querySelector('.lecture-video-content iframe');
+                if (currentVideoIframe) {
+                    currentVideoIframe.src = currentVideoIframe.src; 
+                }
+                this.classList.remove('active');
             }
         });
-
-        if (!isActive) {
-            this.classList.add('active');
-        } else {
-            const currentVideoIframe = this.querySelector('.lecture-video-content iframe');
-            if (currentVideoIframe) {
-                currentVideoIframe.src = currentVideoIframe.src; 
-            }
-            this.classList.remove('active');
-        }
     });
 });
