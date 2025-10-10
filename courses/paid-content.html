@@ -1,25 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LTSpice Mastery Course</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECURE ACCESS: LTSpice Full Course - VLSI Pathway</title>
+    <link rel="stylesheet" href="../assets/css/style.css"> 
+    <style>
+        /* CRITICAL SECURITY FIX: Hides the course content immediately upon page load via CSS. */
+        #main-course-content {
+            display: none !important; 
+        }
+
+        /* Loading screen that appears while JS verifies access */
+        #loading-screen {
+            text-align: center; 
+            padding: 150px 0; 
+            color: var(--eerie-black-1);
+        }
+
+        /* --- Standard Styling Below --- */
+        .section-title { text-align: left; }
+        .h3 { font-size: 2.3rem; margin-block-start: 40px; border-bottom: 2px solid var(--platinum); padding-bottom: 10px; }
+        .lecture-list { list-style: none; padding: 0; }
+        .lecture-toggler { cursor: pointer; padding: 15px 0; border-bottom: 1px dashed var(--light-gray); }
+        .lecture-toggler:hover .lecture-title { color: var(--kappel); }
+        .lecture-toggler.active .lecture-title { color: var(--radical-red); }
+        .lecture-card { display: flex; justify-content: space-between; align-items: center; }
+        .lecture-title { font-weight: 600; font-size: 1.5rem; }
+        .lecture-duration { font-style: italic; color: var(--gray-web); font-size: 1.4rem; }
+        .lecture-video-content { display: none; padding-top: 15px; }
+        .lecture-toggler.active .lecture-video-content { display: block; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-block: 15px; background: #000; border-radius: 8px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .logout-button {
+             color: var(--radical-red); background: none; border: 2px solid var(--radical-red); padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: 600;
+        }
+    </style>
+    <!-- We load the main script file first to enable the enforceAccessGate function -->
+    <script src="../assets/js/script.js" defer></script> 
 </head>
-<body style="font-family: system-ui; text-align: center; background: #fafafa; padding: 40px;">
+<body>
+    
+    <script>
+        // CRITICAL IN-PAGE SCRIPT: This runs the moment the browser hits it.
+        // It's the most reliable way to enforce the unlock command instantly.
+        
+        // This function will reveal content if the session flag is present.
+        function unlockContent() {
+            const userEmail = sessionStorage.getItem('vlsi_user_email');
+            const mainContent = document.getElementById('main-course-content');
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            if (sessionStorage.getItem('vlsi_access_granted') === 'true') {
+                // 1. Hide the loading screen
+                if (loadingScreen) loadingScreen.style.display = 'none';
+                
+                // 2. Show the main content (This MUST happen if the flag is true)
+                if (mainContent) mainContent.style.display = 'block'; 
+                
+                // 3. Display the user email
+                if (userEmail) {
+                    document.getElementById('user-display').textContent = userEmail;
+                }
+            } else {
+                // If the flag is missing, redirect immediately (this is a backup to script.js)
+                window.location.replace('./login.html');
+            }
+        }
+        
+        // Run the unlock function immediately when the browser hits this part of the body
+        unlockContent();
 
-  <div id="main-course-content" style="display: none;">
-    <h1>Welcome to the LTSpice Mastery Course 🚀</h1>
-    <p>Access granted to: <span id="user-email"></span></p>
-    <a href="./logout.html" style="color: red;">Logout</a>
-  </div>
+    </script>
 
-  <div id="access-denied" style="display: none; color: red;">
-    <h2>Access Denied ❌</h2>
-    <p>You are not authorized to view this page.</p>
-    <a href="./login.html">Go to Login Page</a>
-  </div>
+    <!-- LOADING SCREEN: This is the first thing visible. -->
+    <div id="loading-screen">
+        <h2 style="color: var(--eerie-black-1);">Verifying Access...</h2>
+        <p style="color: var(--gray-web);">Please wait while we check your credentials.</p>
+    </div>
 
+    <!-- START OF SECURE CONTENT WRAPPER -->
+    <!-- CRITICAL: The JavaScript looks for this ID to make the content visible. -->
+    <div id="main-course-content">
+
+        <div class="section">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 class="h2 section-title" style="margin: 0;">LTSpice Full Course Content</h2>
+                    <button onclick="sessionStorage.clear(); window.location.replace('./login.html');" class="logout-button">
+                        Logout
+                    </button>
+                </div>
+                <p style="margin-bottom: 30px;">
+                    Access granted to: <span id="user-display" style="font-weight: bold;"></span>. Thank you for enrolling!
+                </p>
+
+                <div class="course-curriculum">
+
+                    <!-- SECTION 1: Introduction -->
+                    <h3 class="h3">Section 1: Introduction</h3>
+                    <ul class="lecture-list">
+                        <li class="lecture-toggler">
+                            <div class="lecture-card">
+                                <p class="lecture-title">Lecture 1: Who is this course for? (Preview)</p>
+                                <p class="lecture-duration">5 min</p>
+                            </div>
+                            <div class="lecture-video-content">
+                                <div class="video-container">
+                                    <!-- REPLACE YOUTUBE_ID_L1 -->
+                                    <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L1?rel=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="lecture-toggler">
+                            <div class="lecture-card">
+                                <p class="lecture-title">Lecture 2: Prerequisites</p>
+                                <p class="lecture-duration">12 min</p>
+                            </div>
+                            <div class="lecture-video-content">
+                                <div class="video-container">
+                                    <!-- REPLACE YOUTUBE_ID_L2 -->
+                                    <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L2?rel=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="lecture-toggler">
+                            <div class="lecture-card">
+                                <p class="lecture-title">Lecture 3: Course Roadmap</p>
+                                <p class="lecture-duration">7 min</p>
+                            </div>
+                            <div class="lecture-video-content">
+                                <div class="video-container">
+                                    <!-- REPLACE YOUTUBE_ID_L3 -->
+                                    <iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L3?rel=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Example of Sections 2-10 structure (Ensure your full content is here) -->
+                    <h3 class="h3">Section 2: Getting Started with LTSpice</h3>
+                    <ul class="lecture-list">
+                        <li class="lecture-toggler"><div class="lecture-card"><p class="lecture-title">Lecture 4: Downloading, setup, and interface</p><p class="lecture-duration">15 min</p></div><div class="lecture-video-content"><div class="video-container"><iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L4?rel=0" frameborder="0" allowfullscreen></iframe></div></div></li>
+                        <li class="lecture-toggler"><div class="lecture-card"><p class="lecture-title">Lecture 5: Creating your first schematic</p><p class="lecture-duration">10 min</p></div><div class="lecture-video-content"><div class="video-container"><iframe src="https://www.youtube.com/embed/YOUTUBE_ID_L5?rel=0" frameborder="0" allowfullscreen></iframe></div></div></li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- END OF SECURE CONTENT WRAPPER -->
 </body>
 </html>
