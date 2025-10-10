@@ -42,39 +42,35 @@
 <body>
     
     <script>
-        // CRITICAL IN-PAGE SCRIPT: This runs BEFORE the main content wrapper is loaded.
-        // It checks the session flag instantly and decides whether to redirect or proceed.
-        // It's the most reliable way to enforce the lock in a static environment.
-        const SECURE_CONTENT_URL_PARTIAL = 'paid-content.html';
-        const LOGIN_PAGE_URL = './login.html';
+        // CRITICAL IN-PAGE SCRIPT: This runs the moment the browser hits it.
+        // It's the most reliable way to enforce the unlock command instantly.
         
-        // Check if the secure access flag exists. If not, redirect immediately.
-        if (window.location.pathname.includes(SECURE_CONTENT_URL_PARTIAL) && 
-            sessionStorage.getItem('vlsi_access_granted') !== 'true') {
-            
-            // SECURITY FAILURE: Redirect immediately before showing any content
-            window.location.replace(LOGIN_PAGE_URL);
-        }
-        
-        // If we reach this point, access is implicitly granted (or user is logged in).
-        
-        // This function will run once the full page is loaded to display the content.
-        window.onload = function() {
+        // This function will reveal content if the session flag is present.
+        function unlockContent() {
             const userEmail = sessionStorage.getItem('vlsi_user_email');
             const mainContent = document.getElementById('main-course-content');
             const loadingScreen = document.getElementById('loading-screen');
-
-            // 1. Hide the loading screen
-            if (loadingScreen) loadingScreen.style.display = 'none';
             
-            // 2. Show the main content (which was hidden by CSS)
-            if (mainContent) mainContent.style.display = 'block'; 
-            
-            // 3. Display the user email
-            if (userEmail) {
-                document.getElementById('user-display').textContent = userEmail;
+            if (sessionStorage.getItem('vlsi_access_granted') === 'true') {
+                // 1. Hide the loading screen
+                if (loadingScreen) loadingScreen.style.display = 'none';
+                
+                // 2. Show the main content (This MUST happen if the flag is true)
+                if (mainContent) mainContent.style.display = 'block'; 
+                
+                // 3. Display the user email
+                if (userEmail) {
+                    document.getElementById('user-display').textContent = userEmail;
+                }
+            } else {
+                // If the flag is missing, redirect immediately (this is a backup to script.js)
+                window.location.replace('./login.html');
             }
-        };
+        }
+        
+        // Run the unlock function immediately when the browser hits this part of the body
+        unlockContent();
+
     </script>
 
     <!-- LOADING SCREEN: This is the first thing visible. -->
