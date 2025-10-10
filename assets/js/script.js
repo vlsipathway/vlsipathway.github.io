@@ -5,7 +5,7 @@
 //----------------------------------------------------------------------
 
 // *** PASTE THE /exec URL YOU COPIED FROM GOOGLE APPS SCRIPT IN STEP 5 ***
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQe8OHlaHetbZryPD6Fe57EkPEgfrmwIwY9bFuy1Ev42EogvT_-7A5AQltKkF_TrUN2w/exec"; 
+const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL_HERE"; 
 const SECURE_CONTENT_URL = "./paid-content.html";
 const LOGIN_PAGE_URL = "./login.html";
 
@@ -41,7 +41,6 @@ function checkSecureAccess() {
     fetch(url)
         .then(response => {
              if (!response.ok) {
-                 // Check for HTTP errors (e.g., 404, 500)
                  throw new Error('API request failed with status: ' + response.status);
              }
              return response.json();
@@ -59,8 +58,7 @@ function checkSecureAccess() {
         })
         .catch(error => {
             console.error("Fetch Error:", error);
-            // Display a generic but helpful error message for the user
-            errorMessage.textContent = "Connection error. Please ensure your key and email are correct and try again.";
+            errorMessage.textContent = "A connection error occurred. Please ensure your key and email are correct and try again.";
         })
         .finally(() => {
             // Re-enable the button
@@ -72,7 +70,7 @@ function checkSecureAccess() {
 
 /**
  * Enforces the access gate on the paid content page.
- * This runs when the DOM is loaded to check if the user is authorized.
+ * NOTE: This function runs immediately upon script load, which is why it's defined globally.
  */
 function enforceAccessGate() {
     const currentPath = window.location.pathname;
@@ -80,8 +78,8 @@ function enforceAccessGate() {
     const loadingScreen = document.getElementById('loading-screen');
 
     // Check if we are on the paid content page (SECURE_CONTENT_URL)
-    // We check against the file name since the path varies across environments.
     if (currentPath.includes(SECURE_CONTENT_URL.substring(2))) { 
+        
         if (sessionStorage.getItem('vlsi_access_granted') !== 'true') {
             // SECURITY FAILURE: Redirect to login page
             if (mainContent) mainContent.style.display = 'none'; 
@@ -90,7 +88,7 @@ function enforceAccessGate() {
             // ACCESS GRANTED: Hide loading screen and SHOW content
             if (loadingScreen) loadingScreen.style.display = 'none';
             if (mainContent) {
-                 mainContent.style.display = 'block';
+                 mainContent.style.display = 'block'; // Make the content visible
             }
             // Display user's email if the element exists
             const userDisplay = document.getElementById('user-display');
@@ -101,15 +99,14 @@ function enforceAccessGate() {
     }
 }
 
-// Attach the enforcement check to run when the page loads
-document.addEventListener('DOMContentLoaded', enforceAccessGate);
+// Run the enforcement check immediately when the script executes
+enforceAccessGate();
 
 
 //----------------------------------------------------------------------
 // 2. EXISTING NAVIGATION AND ACCORDION LOGIC
 //----------------------------------------------------------------------
 
-// --- Existing Navigation Code ---
 const addEventOnElem = function (elem, type, callback) {
     if (elem.length > 1) {
         for (let i = 0; i < elem.length; i++) {
@@ -155,7 +152,7 @@ const activeElem = function () {
 addEventOnElem(window, "scroll", activeElem);
 
 
-// --- Accordion Toggle Logic ---
+// --- Accordion Toggle Logic (Runs after DOM load) ---
 document.addEventListener('DOMContentLoaded', function() {
     const lectureTogglers = document.querySelectorAll('.lecture-toggler');
 
