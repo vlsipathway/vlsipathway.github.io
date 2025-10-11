@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LT Spice: Beginner to Advanced - VLSI Pathway</title>
+    <!-- Updated Title -->
+    <title>Practical LTSpice: From Basics to CMOS Circuits - VLSI Pathway</title>
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif; /* Using Inter font for modern look */
             background: #f5f5f5;
             padding: 20px;
         }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Color Scheme Variables (Updated for better contrast/visibility) */
+        :root {
+            --primary-color: #4b6cb7; /* Rich Indigo/Blue for high visibility */
+            --primary-dark: #182848;  /* Deep Navy for high contrast in gradients */
+            --primary-text: #333;
+            --secondary-bg: #e6e9f5; /* Light background for free preview */
+            --accent-green: #4caf50;
+        }
+
+        /* Navbar Styling */
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Updated Gradient for better white text visibility */
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -30,7 +48,7 @@
         }
         .navbar a {
             background: white;
-            color: #667eea;
+            color: var(--primary-color);
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -41,11 +59,10 @@
         }
         .navbar a:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+
+        /* Back Button */
         .back-btn {
             background: #e0e0e0;
             color: #333;
@@ -60,6 +77,8 @@
         .back-btn:hover {
             transform: translateY(-2px);
         }
+
+        /* Course Header */
         .course-header {
             background: white;
             padding: 40px;
@@ -68,32 +87,51 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .course-header h2 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 32px;
+            color: var(--primary-text);
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+        .course-header h3 {
+             /* H3 text color is on white background, still looks great */
+             color: var(--primary-dark);
+             font-size: 22px;
+             margin-bottom: 15px;
         }
         .course-header p {
             color: #666;
             margin-bottom: 15px;
             font-size: 16px;
+            line-height: 1.6;
         }
+
+        /* Price Section */
         .price-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Updated Gradient for better white text visibility */
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 30px;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+        
+        /* FIX: Explicit style for the access details text */
+        .price-section p {
+            color: #ffffff; /* Ensures pure white */
+            font-weight: 500; /* Slightly bolder for better visibility */
+            font-size: 15px; /* Slightly larger for easier reading */
+        }
+
         .price-section h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 32px;
+            margin-bottom: 5px;
         }
         .enroll-btn {
             background: white;
-            color: #667eea;
+            color: var(--primary-color);
             border: none;
             padding: 15px 40px;
             border-radius: 5px;
@@ -103,14 +141,48 @@
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .enroll-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
+
+        /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
+            margin-bottom: 30px;
         }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Description Section */
+        .description-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .description-section h3 {
+            color: var(--primary-text);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .description-section ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+            margin-top: 15px;
+            color: #555;
+        }
+        .description-section li {
+            margin-bottom: 8px;
+        }
+
+        /* Curriculum Section */
         .curriculum-section {
             background: white;
             padding: 30px;
@@ -118,27 +190,73 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .curriculum-section h3 {
-            color: #333;
+            color: var(--primary-text);
             margin-bottom: 20px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
         }
+        .section-title {
+            color: var(--primary-dark);
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding: 8px 15px;
+            background: #f0f8ff; /* Light blue background for sections */
+            border-radius: 5px;
+        }
         .module {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             padding: 15px;
             background: #f9f9f9;
             border-radius: 5px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
         }
         .module h4 {
-            color: #667eea;
-            margin-bottom: 8px;
+            color: var(--primary-text);
+            margin-bottom: 5px;
             font-size: 16px;
+            font-weight: 600;
         }
-        .module p {
+        .module-details {
             color: #666;
             font-size: 14px;
         }
+
+        /* Video Embed/Preview Lecture */
+        .video-embed-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .video-embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+        .free-preview {
+            background: var(--secondary-bg);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-green);
+        }
+        .free-preview p {
+            color: var(--accent-green);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Sidebar */
         .sidebar {
             background: white;
             padding: 30px;
@@ -147,40 +265,26 @@
             height: fit-content;
         }
         .sidebar h3 {
-            color: #333;
+            color: var(--primary-text);
             margin-bottom: 20px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
         }
         .sidebar-item {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
-            color: #666;
-            font-size: 14px;
+            color: #555;
+            font-size: 15px;
         }
         .sidebar-item ion-icon {
-            color: #667eea;
+            color: var(--primary-color);
             margin-right: 10px;
             font-size: 20px;
         }
-        .free-preview {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            border-left: 4px solid #4caf50;
-        }
-        .free-preview p {
-            color: #2e7d32;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .free-preview span {
-            color: #555;
-            font-size: 14px;
-        }
-        @media (max-width: 768px) {
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
             .content-grid {
                 grid-template-columns: 1fr;
             }
@@ -196,77 +300,238 @@
                 padding: 20px;
             }
             .course-header h2 {
-                font-size: 24px;
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
     <button class="back-btn" onclick="window.history.back()">← Back</button>
-    
+
     <div class="navbar">
-        <h1>LT Spice Course</h1>
+        <h1>VLSI Pathway</h1>
         <a href="../index.html">Home</a>
     </div>
 
     <div class="container">
         <div class="course-header">
-            <h2>LT Spice: Beginner to Advanced Level</h2>
-            <p><strong>Master circuit simulation and analysis with LT Spice</strong></p>
-            <p>Learn industry-standard simulation techniques used by chip designers worldwide. From basic circuits to advanced analog designs.</p>
-            
+            <!-- Updated Course Title -->
+            <h2>Practical LTSpice: From Basics to CMOS Circuits</h2>
+            <!-- Updated Course Subtitle -->
+            <h3>Master circuit simulation and analysis for VLSI and IC design.</h3>
+
             <div class="price-section">
                 <div>
                     <h3>₹399</h3>
-                    <p>Lifetime Access • 12 Modules • Certificate</p>
+                    <!-- Target text below -->
+                    <p>Lifetime Access • 10 Sections • Certificate</p>
                 </div>
                 <button class="enroll-btn" onclick="initiatePayment()">Enroll Now</button>
             </div>
         </div>
 
         <div class="content-grid">
-            <div class="curriculum-section">
-                <h3>What You'll Learn</h3>
-                
-                <div class="free-preview">
-                    <p>📖 FREE PREVIEW</p>
-                    <span>Module 1: Introduction to LT Spice (Free Sample)</span>
+            <div class="main-content">
+                <!-- Detailed Description Section -->
+                <div class="description-section">
+                    <h3>Course Overview</h3>
+                    <p>LTSpice is a free yet powerful circuit simulation tool widely used in electronics, VLSI, and IC design. Whether you are a student, researcher, or professional engineer, mastering LTSpice will strengthen your ability to design, analyze, and test electronic circuits.</p>
+                    <p>This course takes you on a step-by-step journey, starting from the fundamentals of LTSpice, building simple circuits, and performing essential analyses. You will then progress toward advanced topics, including MOSFET characterization, CMOS inverter analysis, and digital circuit implementation such as NAND, NOR, and Full Adder design using CMOS technology files.</p>
+                    <p>The focus is practical learning — every concept is explained through examples, hands-on circuit design, and real-world applications. You’ll also gain access to technology files, reference materials, and troubleshooting tips to confidently work on your own projects.</p>
+
+                    <h4>What You Will Be Able to Do:</h4>
+                    <ul>
+                        <li>Create, customize, and simulate circuits in LTSpice</li>
+                        <li>Perform essential analyses (.op, .tran, .dc, .ac, .tf, .step, .temp)</li>
+                        <li>Build and analyze resistor networks and RC filters</li>
+                        <li>Work with model files and create custom symbols</li>
+                        <li>Characterize MOSFET devices using 180nm CMOS technology</li>
+                        <li>Design and simulate CMOS inverters, logic gates, and a full adder</li>
+                        <li>Apply LTSpice to practical projects like ring oscillators and op-amp circuits</li>
+                    </ul>
+
+                    <p>Take the first step toward becoming confident in circuit simulation and CMOS design with LTSpice — enroll today!</p>
                 </div>
 
-                <div class="module">
-                    <h4>Module 1: Introduction to LT Spice</h4>
-                    <p>Get started with LT Spice installation, interface overview, and basic circuit components. Learn the fundamentals of SPICE simulation.</p>
-                </div>
+                <!-- Curriculum Section -->
+                <div class="curriculum-section">
+                    <h3>Comprehensive Course Curriculum (36 Lectures)</h3>
 
-                <div class="module">
-                    <h4>Module 2: Basic Circuit Simulation</h4>
-                    <p>Create and simulate simple circuits. Learn about voltage sources, resistors, and basic analysis techniques.</p>
-                </div>
+                    <!-- Section 1 -->
+                    <div class="section-title">Section 1: Introduction</div>
+                    <div class="module free-preview">
+                        <!-- Embedded YouTube Video as the Free Preview Lecture -->
+                        <h4>Lecture 1: Who is this course for? (FREE PREVIEW)</h4>
+                        <div class="module-details">Watch this video to understand if this course aligns with your career goals.</div>
+                        <div class="video-embed-container">
+                             <!-- YouTube Embed: https://youtu.be/c7rtyrGkND4 -->
+                            <iframe src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 2: Prerequisites</h4>
+                        <div class="module-details">Basic electronics knowledge, familiarity with circuits.</div>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 3: Course Roadmap</h4>
+                        <div class="module-details">What to expect and how to maximize your learning.</div>
+                    </div>
 
-                <div class="module">
-                    <h4>Module 3: Transient Analysis</h4>
-                    <p>Understand time-domain analysis. Simulate circuit behavior over time and analyze transient responses.</p>
-                </div>
+                    <!-- Section 2 -->
+                    <div class="section-title">Section 2: Getting Started with LTSpice</div>
+                    <div class="module">
+                        <h4>Lecture 4: Downloading, setup, and introduction to the interface</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 5: Creating your first schematic</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 6: Toolbar and file menu basics (open, save, edit, etc.)</h4>
+                    </div>
 
-                <div class="module">
-                    <h4>Module 4: AC Analysis</h4>
-                    <p>Learn frequency-domain analysis. Study frequency response, gain, and phase characteristics of circuits.</p>
-                </div>
+                    <!-- Section 3 -->
+                    <div class="section-title">Section 3: Customization and Workflow</div>
+                    <div class="module">
+                        <h4>Lecture 7: Customizing schematics and waveform viewer</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 8: Control panel overview (colors, fonts, preferences)</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 9: Efficient navigation & tips</h4>
+                    </div>
 
-                <div class="module">
-                    <h4>Module 5: Op-Amp Circuits</h4>
-                    <p>Design and simulate operational amplifier circuits. Build amplifiers, filters, and analog signal processors.</p>
-                </div>
+                    <!-- Section 4 -->
+                    <div class="section-title">Section 4: Understanding Analysis Commands</div>
+                    <div class="module">
+                        <h4>Lecture 10: Introduction to analysis types</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 11: .op – Operating point analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 12: .tran – Transient analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 13: .dc – DC sweep</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 14: .step param – Parametric sweep</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 15: .tf – Transfer function analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 16: .ac – AC analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 17: .temp – Temperature sweep</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 18: Hands-on examples for each analysis</h4>
+                    </div>
 
-                <div class="module">
-                    <h4>Module 6-12: Advanced Topics</h4>
-                    <p>Power supplies, stability analysis, PCB layout considerations, real-world design challenges, and industry projects.</p>
+                    <!-- Section 5 -->
+                    <div class="section-title">Section 5: Learning Through Simple Circuits</div>
+                    <div class="module">
+                        <h4>Lecture 19: Design and Simulation of Resistive divider circuit</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 20: Design and Simulation of a RC low-pass filter</h4>
+                    </div>
+
+                    <!-- Section 6 -->
+                    <div class="section-title">Section 6: Symbols, Models, and Libraries</div>
+                    <div class="module">
+                        <h4>Lecture 21: How to create a custom schematic symbol</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 22: Importing and using model files</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 23: Working with technology files (e.g., CMOS 180 nm PDK)</h4>
+                    </div>
+
+                    <!-- Section 7 -->
+                    <div class="section-title">Section 7: MOSFETs and Advanced Circuits</div>
+                    <div class="module">
+                        <h4>Lecture 24: MOSFET characteristics using 180nm technology file</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 25: Plotting Id-Vgs, Id-Vds, gm, ro etc.</h4>
+                    </div>
+
+                    <!-- Section 8 -->
+                    <div class="section-title">Section 8: CMOS Circuit Design in LTSpice</div>
+                    <div class="module">
+                        <h4>Lecture 26: CMOS Inverter design and analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 27: DC transfer characteristics</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 28: Threshold voltage estimation</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 29: Noise margin calculation</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 30: Design and Simulation of CMOS logic gates (NAND, NOR etc)</h4>
+                    </div>
+
+                    <!-- Section 9 -->
+                    <div class="section-title">Section 9: Resources and Extras</div>
+                    <div class="module">
+                        <h4>Lecture 31: Providing technology files (e.g., 180nm CMOS)</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 32: Recommended books and articles for deeper learning</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 33: Troubleshooting common LTSpice errors</h4>
+                    </div>
+
+                    <!-- Section 10 -->
+                    <div class="section-title">Section 10: Wrap-Up</div>
+                    <div class="module">
+                        <h4>Lecture 34: Final thoughts</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 35: Real-world applications of LTSpice</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 36: Next steps for learners (moving towards VLSI/Analog IC design)</h4>
+                    </div>
                 </div>
             </div>
 
             <div class="sidebar">
-                <h3>Course Details</h3>
-                
+                <h3>Course Designed For</h3>
+
+                <div class="sidebar-item">
+                    <ion-icon name="school-outline"></ion-icon>
+                    <span>Electronics and Electrical Engineering students</span>
+                </div>
+                <div class="sidebar-item">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <span>Researchers and project students</span>
+                </div>
+                <div class="sidebar-item">
+                    <ion-icon name="rocket-outline"></ion-icon>
+                    <span>VLSI and IC design enthusiasts</span>
+                </div>
+                <div class="sidebar-item">
+                    <ion-icon name="briefcase-outline"></ion-icon>
+                    <span>Professionals and hobbyists</span>
+                </div>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+
+                <h3>Course Features</h3>
                 <div class="sidebar-item">
                     <ion-icon name="time-outline"></ion-icon>
                     <span><strong>Duration:</strong> 3-4 weeks (self-paced)</span>
@@ -274,17 +539,17 @@
 
                 <div class="sidebar-item">
                     <ion-icon name="library-outline"></ion-icon>
-                    <span><strong>Modules:</strong> 12 comprehensive modules</span>
+                    <span><strong>Sections:</strong> 10 comprehensive sections</span>
                 </div>
 
                 <div class="sidebar-item">
                     <ion-icon name="videocam-outline"></ion-icon>
-                    <span><strong>Videos:</strong> 40+ video tutorials</span>
+                    <span><strong>Lectures:</strong> 36 video tutorials</span>
                 </div>
 
                 <div class="sidebar-item">
                     <ion-icon name="document-outline"></ion-icon>
-                    <span><strong>Resources:</strong> Lecture notes & circuit files</span>
+                    <span><strong>Resources:</strong> Tech files & reference notes</span>
                 </div>
 
                 <div class="sidebar-item">
@@ -307,11 +572,19 @@
         </div>
     </div>
 
+    <!-- Payment and IonIcons Scripts -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         const RAZORPAY_KEY = 'rzp_test_RS6oUVhJjDrJt';
         const COURSE_ID = 'LTSPICE';
         const PRICE = 39900; // in paise (₹399 = 39900 paise)
+
+        // Custom alert function to replace 'alert()'
+        function showCustomAlert(message) {
+            console.log("Custom Alert: " + message);
+            // In a real application, you'd show a modal here.
+            // For now, we'll log it.
+        }
 
         function initiatePayment() {
             const options = {
@@ -319,12 +592,13 @@
                 amount: PRICE,
                 currency: 'INR',
                 name: 'VLSI Pathway',
-                description: 'LT Spice: Beginner to Advanced Level',
+                description: 'Practical LTSpice: From Basics to CMOS Circuits',
                 image: '../assets/images/logo-light (2).svg',
                 handler: function(response) {
                     // Payment successful
-                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    showCustomAlert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
                     // You'll integrate email sending here later
+                    // Redirect to login/content page
                     window.location.href = './login.html';
                 },
                 prefill: {
@@ -332,15 +606,19 @@
                     contact: ''
                 },
                 theme: {
-                    color: '#667eea'
+                    color: '#4b6cb7' /* Updated theme color */
                 }
             };
-            
+
             const rzp = new Razorpay(options);
+            rzp.on('payment.failed', function(response){
+                showCustomAlert('Payment failed: ' + response.error.description);
+            });
             rzp.open();
         }
     </script>
 
+    <!-- IonIcons for sidebar icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
