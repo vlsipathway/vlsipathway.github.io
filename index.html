@@ -29,9 +29,7 @@
   <style>
     @media (max-width: 768px) {
       .header .btn { 
-        display: flex !important; 
-        font-size: 12px;
-        padding: 8px 15px;
+        display: none !important; 
       }
       
       .header-actions {
@@ -40,8 +38,10 @@
         gap: 10px;
       }
 
-      .header-actions .btn:last-of-type {
-        display: none;
+      .header-actions .btn:first-child {
+        display: flex !important; 
+        font-size: 12px;
+        padding: 8px 15px;
       }
     }
   </style>
