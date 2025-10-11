@@ -140,13 +140,16 @@
 
     <script>
         // Course mapping - map course IDs to their page URLs and names
-        const courseMap = {
-            'LTSPICE': { name: 'LT Spice: Beginner to Advanced', url: './ltspice-paid.html' },
-            'ANALOG': { name: 'Analog IC Design', url: './analog-paid.html' },
-            'DIGITAL': { name: 'Digital Design', url: './digital-paid.html' },
-            // Add more courses here as needed
-        };
-
+        // const courseMap = {
+        //     'LTSPICE': { name: 'LT Spice: Beginner to Advanced', url: './ltspice-paid.html' },
+        //     'ANALOG': { name: 'Analog IC Design', url: './analog-paid.html' },
+        //     'DIGITAL': { name: 'Digital Design', url: './digital-paid.html' },
+        //     // Add more courses here as needed
+        // };
+const courseMap = {
+    'LTSPICE': { name: 'LT Spice: Beginner to Advanced', url: './ltspice-paid.html' },
+    'ANALOG': { name: 'Analog IC Design', url: './analog-paid.html' },
+};
         window.addEventListener('load', () => {
             const userEmail = sessionStorage.getItem('userEmail');
             const userName = sessionStorage.getItem('userName');
