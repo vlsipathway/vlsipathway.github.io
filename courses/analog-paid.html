@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog IC Design - VLSI Pathway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            font-size: 24px;
+        }
+        .navbar button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .navbar button:hover {
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .course-header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-header h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .course-header p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .video-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .video-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .video-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .video-item:hover {
+            background: #f0f0f0;
+        }
+        .video-item h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .video-item p {
+            color: #666;
+            font-size: 12px;
+        }
+        .player-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            sticky: position: sticky;
+            top: 20px;
+        }
+        .player-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .video-title {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .back-btn {
+            background: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .back-btn:hover {
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .player-section {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.history.back()">← Back to Dashboard</button>
+    
+    <div class="navbar">
+        <h1>Analog IC Design</h1>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="course-header">
+            <h2>Analog IC Design</h2>
+            <p><strong>Instructor:</strong> VLSI Pathway Team</p>
+            <p><strong>Duration:</strong> 14 weeks | <strong>Level:</strong> Intermediate to Advanced</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="video-section">
+                <h3>Course Content</h3>
+                <div id="videoList"></div>
+            </div>
+
+            <div class="player-section">
+                <h3>Now Playing</h3>
+                <div class="video-placeholder">Video Player</div>
+                <div class="video-title" id="currentVideoTitle">Select a video to play</div>
+                <div id="videoContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Course videos - Replace these YouTube links with your actual private video links
+        const courseVideos = [
+            { id: 1, title: 'Module 1: Fundamentals of Analog Design', duration: '18 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_1' },
+            { id: 2, title: 'Module 2: CMOS Amplifiers', duration: '22 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_2' },
+            { id: 3, title: 'Module 3: Operational Amplifiers', duration: '25 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_3' },
+            { id: 4, title: 'Module 4: Frequency Response', duration: '28 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_4' },
+            { id: 5, title: 'Module 5: Analog Design Projects', duration: '35 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_5' },
+            { id: 6, title: 'Module 6: Layout and Design Rules', duration: '30 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_6' },
+        ];
+
+        window.addEventListener('load', () => {
+            const userEmail = sessionStorage.getItem('userEmail');
+            
+            // Check if user is logged in
+            if (!userEmail) {
+                window.location.href = './login.html';
+                return;
+            }
+
+            // Load video list
+            const videoList = document.getElementById('videoList');
+            courseVideos.forEach(video => {
+                const videoItem = document.createElement('div');
+                videoItem.className = 'video-item';
+                videoItem.innerHTML = `
+                    <h4>${video.title}</h4>
+                    <p>${video.duration}</p>
+                `;
+                videoItem.onclick = () => playVideo(video);
+                videoList.appendChild(videoItem);
+            });
+
+            // Load first video by default
+            playVideo(courseVideos[0]);
+        });
+
+        function playVideo(video) {
+            document.getElementById('currentVideoTitle').textContent = video.title;
+            const videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = `
+                <iframe width="100%" height="315" src="${video.videoUrl}" 
+                    title="${video.title}" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            `;
+        }
+
+        function logout() {
+            sessionStorage.clear();
+            window.location.href = './login.html';
+        }
+    </script>
+</body>
+</html>
