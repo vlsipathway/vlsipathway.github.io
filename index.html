@@ -6,48 +6,44 @@
   <meta http-equiv="X-UA-Compatible" 8content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 
-    - primary meta tag
-  -->
   <title>VLSI Pathway – Master VLSI & Semiconductor Skills</title>
   <meta name="title" content="VLSI Pathway – Master VLSI & Semiconductor Skills">
   <meta name="description" content="VLSI Pathway provides hands-on VLSI and semiconductor training, industry projects, and mentorship to make you job-ready in chip design.">
 
-  <!-- 
-    - favicon
-  -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
 
-  <!-- 
-    - preload images
-  -->
   <link rel="preload" as="image" href="./assets/images/hero-bg.svg">
   <link rel="preload" as="image" href="./assets/images/hero-banner-1.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-banner-2.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-shape-1.svg">
   <link rel="preload" as="image" href="./assets/images/hero-shape-2.png">
 
+  <style>
+    @media (max-width: 768px) {
+      .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      
+      .header-actions .btn {
+        width: 100%;
+        margin-right: 0 !important;
+      }
+    }
+  </style>
+
 </head>
 
 <body id="top">
-
-  <!-- 
-    - #HEADER
-  -->
 
   <header class="header" data-header>
     <div class="container">
@@ -96,7 +92,7 @@
 
       <div class="header-actions">
 
-        <a href="./courses/login.html" class="btn has-before" style="margin-right: 10px;">
+        <a href="./courses/login.html" class="btn has-before">
           <span class="span">Student Login</span>
 
           <ion-icon name="lock-open-outline" aria-hidden="true"></ion-icon>
@@ -119,16 +115,8 @@
     </div>
   </header>
 
-
-
-
-
   <main>
     <article>
-
-      <!-- 
-        - #HERO
-      -->
 
       <section class="section hero has-bg-image" id="home" aria-label="home"
         style="background-image: url('./assets/images/hero-bg.svg')">
@@ -162,22 +150,12 @@
               <img src="./assets/images/hero-banner-2.jpg" width="240" height="370" alt="hero banner" class="img-cover">
             </div>
 
-            <!-- <img src="./assets/images/hero-shape-1.svg" width="380" height="190" alt="" class="shape hero-shape-1"> -->
-
             <img src="./assets/images/hero-shape-2.png" width="622" height="551" alt="" class="shape hero-shape-2">
 
           </figure>
 
         </div>
       </section>
-
-
-
-
-
-      <!-- 
-        - #CATEGORY
-      -->
 
       <section class="section category" id="Paths"aria-label="category">
         <div class="container">
@@ -283,14 +261,6 @@
         </div>
       </section>
 
-
-
-
-
-      <!-- 
-        - #ABOUT
-      -->
-
       <section class="section about" id="about" aria-label="about">
         <div class="container">
 
@@ -300,9 +270,6 @@
               <img src="./assets/images/abt.jpg" width="520" height="370" loading="lazy" alt="about banner"
                 class="img-cover">
             </div>
-
-            <!-- <img src="./assets/images/about-shape-1.svg" width="360" height="420" loading="lazy" alt=""
-              class="shape about-shape-1"> -->
 
             <img src="./assets/images/about-shape-2.svg" width="371" height="220" loading="lazy" alt=""
               class="shape about-shape-2">
@@ -354,14 +321,6 @@
         </div>
       </section>
 
-
-
-
-
-      <!-- 
-        - #COURSE
-      -->
-
       <section class="section course" id="courses" aria-label="course">
         <div class="container">
 
@@ -407,7 +366,7 @@
 
                   </div>
 
-                  <data class="price" value="29">$299</data>
+                  <data class="price" value="29">₹399</data>
 
                   <ul class="card-meta-list">
 
@@ -466,7 +425,7 @@
 
                   </div>
 
-                  <data class="price" value="49">$399</data>
+                  <data class="price" value="49">₹399</data>
 
                   <ul class="card-meta-list">
 
@@ -525,7 +484,7 @@
 
                   </div>
 
-                  <data class="price" value="35">$349</data>
+                  <data class="price" value="35">₹399</data>
 
                   <ul class="card-meta-list">
 
@@ -558,14 +517,6 @@
 
         </div>
       </section>
-
-
-
-
-
-      <!-- 
-        - #STATE
-      -->
 
       <section class="section stats" aria-label="stats">
         <div class="container">
@@ -612,14 +563,6 @@
     </article>
   </main>
 
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
   <footer class="footer" id="footer" style="background-image: url('./assets/images/footer-bg.png')">
 
     <div class="footer-top section">
@@ -656,24 +599,24 @@
           </li>
 
           <li>
-            <a href="./about.html" class="footer-link">About Us</a>
+            <a href="#about" class="footer-link">About Us</a>
           </li>
 
           <li>
-            <a href="./privacy.html" class="footer-link">Privacy Policy<a>
+            <a href="#Paths" class="footer-link">Specialisation Pathway</a>
           </li>
 
           <li>
-            <a href="./terms.html" class="footer-link">Terms and Conditions</a>
+            <a href="#" class="footer-link">Career Page: Coming Soon</a>
           </li>
 
           <li>
-            <a href="./purchase.html" class="footer-link">Purchase Guide</a>
+            <a href="#" class="footer-link">Purchase Guide: Coming Soon</a>
           </li>
 
         </ul>
 
-        <!-- <ul class="footer-list">
+        <ul class="footer-list">
 
           <li>
             <p class="footer-list-title">Links</p>
@@ -691,13 +634,13 @@
             <a href="#" class="footer-link">FAQ's:Coming Soon</a>
           </li>
 
-        </ul> -->
+        </ul>
 
         <div class="footer-list">
 
-          <p class="footer-list-title">Social Links</p>
+          <p class="footer-list-title">Contacts</p>
 
-          <!-- <p class="footer-list-text">
+          <p class="footer-list-text">
             Enter your email address to register to our newsletter subscription
           </p>
 
@@ -709,7 +652,7 @@
 
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </button>
-          </form> -->
+          </form>
 
           <ul class="social-list">
 
@@ -744,22 +687,12 @@
 
   </footer>
 
-  <!-- 
-    - #BACK TO TOP
-  -->
-
   <a href="#top" class="back-top-btn" aria-label="back top top" data-back-top-btn>
     <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
   </a>
 
-  <!-- 
-    - custom js link
-  -->
   <script src="./assets/js/script.js" defer></script>
 
-  <!-- 
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
