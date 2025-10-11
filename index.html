@@ -13,22 +13,6 @@
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
 
   <link rel="stylesheet" href="./assets/css/style.css">
-  <style>
-  @media (max-width: 768px) {
-    .header .btn { 
-      display: flex !important; 
-      font-size: 12px;
-      padding: 8px 15px;
-    }
-    
-    .header-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-    }
-  }
-</style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +25,26 @@
   <link rel="preload" as="image" href="./assets/images/hero-banner-2.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-shape-1.svg">
   <link rel="preload" as="image" href="./assets/images/hero-shape-2.png">
+
+  <style>
+    @media (max-width: 768px) {
+      .header .btn { 
+        display: flex !important; 
+        font-size: 12px;
+        padding: 8px 15px;
+      }
+      
+      .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-actions .btn:last-of-type {
+        display: none;
+      }
+    }
+  </style>
 
 </head>
 
