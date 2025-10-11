@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Guide - VLSI Pathway</title>
+    
+    <style>
+        /* Define the primary font and colors for consistency */
+        :root {
+            --primary-color: #1abc9c; /* Teal/Green accent color */
+            --text-color: #333;
+            --heading-color: #2c3e50;
+            --max-width: 900px;
+        }
+
+        /* Basic Reset and Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: white; 
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Main Container for Responsiveness */
+        .guide-container {
+            max-width: var(--max-width);
+            margin: 0 auto; 
+            padding: 30px 20px;
+        }
+
+        /* Headings Styling */
+        h1 {
+            color: var(--heading-color); 
+            font-size: 2.2em;
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color); 
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+        
+        /* Step-by-Step Styling (Ordered List) */
+        .step-list {
+            list-style-type: none; /* Remove default numbering */
+            counter-reset: step-counter;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 35px;
+            padding-left: 70px; /* Space for the counter badge */
+            position: relative;
+            min-height: 50px;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .step-list strong {
+            display: block;
+            font-size: 1.2em;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+
+        /* Emphasis and Links */
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #16a085;
+        }
+
+        /* Media Query for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+                padding-bottom: 10px;
+            }
+            .step-list li {
+                padding-left: 55px;
+            }
+            .step-list li::before {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="guide-container">
+        <h1>Simple Purchase Guide</h1>
+
+        <p>
+            Ready to master VLSI design? Follow these simple steps to enroll in a course or access your chosen learning path on VLSI Pathway.
+        </p>
+        
+        <ul class="step-list">
+            <li>
+                <strong>Step 1: Explore Courses</strong>
+                Browse our catalog on the <a href="/courses">Courses page</a>. Read the descriptions, check the curriculum, and review the prerequisites to find the program that best fits your goals.
+            </li>
+            
+            <li>
+                <strong>Step 2: Add to Cart (or Enroll Now)</strong>
+                Once you’ve selected a course, click the **"Enroll Now"** or **"Add to Cart"** button on the course description page. You can add multiple courses before proceeding.
+            </li>
+            
+            <li>
+                <strong>Step 3: Review Your Order</strong>
+                Go to your cart to review the selected items. If you have a coupon code, enter it here and click "Apply" to adjust the total price. Ensure all details are correct.
+            </li>
+            
+            <li>
+                <strong>Step 4: Checkout and Payment</strong>
+                Click "Proceed to Checkout." You will be prompted to either log in to an existing account or create a new **VLSI Pathway Student Account**. We accept all major credit/debit cards and other standard payment methods.
+            </li>
+            
+            <li>
+                <strong>Step 5: Confirmation and Access</strong>
+                After successful payment, you will receive an **email confirmation** with your receipt and login details. The purchased course will be instantly available in your **Student Dashboard** when you log in.
+            </li>
+            
+            <li>
+                <strong>Step 6: Start Learning!</strong>
+                Log in and navigate to your dashboard to access all video lectures, lab materials, projects, and mentorship resources. Happy learning!
+            </li>
+        </ul>
+
+        <h2 id="support">Need Help with Your Order?</h2>
+        <p>
+            If you encounter any issues during the checkout process, need an invoice, or have questions about a course, please don't hesitate to reach out.
+        </p>
+        <p>
+            **Contact Support:** <a href="mailto:[YOUR-CONTACT-EMAIL@vlsipathway.com]">**[YOUR-CONTACT-EMAIL@vlsipathway.com]**</a>
+        </p>
+    </div>
+
+</body>
+</html>
