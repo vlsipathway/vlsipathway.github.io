@@ -3,62 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Access Login - VLSI Pathway</title>
-    <!-- Use relative path to your main style.css -->
-    <link rel="stylesheet" href="../assets/css/style.css"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
-        rel="stylesheet">
+    <title>VLSI Pathway - Student Login</title>
     <style>
-        .login-container {
-            max-width: 420px;
-            margin: 100px auto;
-            padding: 40px;
-            background-color: var(--isabelline);
-            border-radius: var(--radius-10);
-            box-shadow: var(--shadow-2);
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .login-container input {
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .login-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+        }
+        .login-container h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .login-container p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .form-group input {
             width: 100%;
             padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid var(--platinum);
-            border-radius: var(--radius-5);
-            font-size: var(--fs-5);
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
         }
-        .login-container .btn {
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .login-btn {
             width: 100%;
-            justify-content: center;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .login-btn:hover {
+            transform: translateY(-2px);
+        }
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2 class="h2 section-title">Student Course Login</h2>
-        <p class="section-text" style="font-size: var(--fs-5); margin-bottom: 20px;">
-            Access content using the Email and Key provided after payment.
-        </p>
+        <h1>Student Login</h1>
+        <p>Enter your credentials to access your courses</p>
         
-        <form id="access-form" onsubmit="event.preventDefault(); checkSecureAccess();">
-            <input type="email" id="access-email" placeholder="Registered Email Address" required>
-            <input type="text" id="access-key" placeholder="Unique Access Key" required>
-            <button type="submit" class="btn has-before" id="login-button">
-                <span class="span">Unlock My Course</span>
-            </button>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="key">Access Key</label>
+                <input type="text" id="key" name="key" required placeholder="Your access key">
+            </div>
+            
+            <button type="submit" class="login-btn">Login</button>
+            
+            <div class="loading" id="loading">Loading...</div>
+            <div class="message" id="message"></div>
         </form>
-        <p id="error-message" style="color: var(--radical-red); margin-top: 15px; font-weight: var(--fw-500);"></p>
-        
-        <div style="margin-top: 30px; border-top: 1px solid var(--platinum); padding-top: 20px;">
-            <p style="font-size: var(--fs-6); color: var(--gray-web);">
-                Need to enroll? <a href="../courses/ltspice-preview.html" style="color: var(--kappel); text-decoration: underline;">View Course Details</a>
-            </p>
-        </div>
     </div>
 
-    <!-- The main script file containing the validation logic -->
-    <script src="../assets/js/script.js"></script> 
+    <script>
+        const GAS_URL = 'https://script.google.com/macros/s/AKfycbxqVs04il0td2sWpMts481asMJcjmeA39y6SpZKhS_r-E6LtiuaFuLvYaGbYR-WZm-g8A/exec';
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const key = document.getElementById('key').value;
+            const messageDiv = document.getElementById('message');
+            const loadingDiv = document.getElementById('loading');
+
+            messageDiv.style.display = 'none';
+            loadingDiv.style.display = 'block';
+
+            try {
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ email, key })
+                });
+
+                const data = await response.json();
+                loadingDiv.style.display = 'none';
+
+                if (data.success) {
+                    // Store login info in sessionStorage
+                    sessionStorage.setItem('userEmail', email);
+                    sessionStorage.setItem('userKey', key);
+                    sessionStorage.setItem('userName', data.userName);
+                    sessionStorage.setItem('userCourses', JSON.stringify(data.courses));
+
+                    messageDiv.classList.remove('error');
+                    messageDiv.classList.add('success');
+                    messageDiv.textContent = 'Login successful! Redirecting...';
+                    messageDiv.style.display = 'block';
+
+                    // Redirect to dashboard after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = './dashboard.html';
+                    }, 2000);
+                } else {
+                    messageDiv.classList.remove('success');
+                    messageDiv.classList.add('error');
+                    messageDiv.textContent = data.message;
+                    messageDiv.style.display = 'block';
+                }
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                messageDiv.classList.remove('success');
+                messageDiv.classList.add('error');
+                messageDiv.textContent = 'Error: ' + error.message;
+                messageDiv.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
