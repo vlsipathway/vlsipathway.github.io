@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog IC Design - VLSI Pathway</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            font-size: 24px;
+        }
+        .navbar a {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .navbar a:hover {
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .back-btn {
+            background: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .back-btn:hover {
+            transform: translateY(-2px);
+        }
+        .course-header {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-header h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 32px;
+        }
+        .course-header p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .price-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .price-section h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .enroll-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .enroll-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .curriculum-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .curriculum-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .module {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        .module h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .module p {
+            color: #666;
+            font-size: 14px;
+        }
+        .sidebar {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        .sidebar h3 {
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        .sidebar-item ion-icon {
+            color: #667eea;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .free-preview {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        .free-preview p {
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .free-preview span {
+            color: #555;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .price-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .enroll-btn {
+                width: 100%;
+                margin-top: 20px;
+            }
+            .course-header {
+                padding: 20px;
+            }
+            .course-header h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.history.back()">← Back</button>
+    
+    <div class="navbar">
+        <h1>Analog IC Design Course</h1>
+        <a href="../index.html">Home</a>
+    </div>
+
+    <div class="container">
+        <div class="course-header">
+            <h2>Analog IC Design</h2>
+            <p><strong>Design industry-grade analog circuits and integrated circuits</strong></p>
+            <p>Master the art of analog IC design from fundamentals to advanced topics. Learn CMOS design, op-amps, layout techniques, and real-world design challenges.</p>
+            
+            <div class="price-section">
+                <div>
+                    <h3>₹399</h3>
+                    <p>Lifetime Access • 14 Modules • Certificate</p>
+                </div>
+                <button class="enroll-btn" onclick="initiatePayment()">Enroll Now</button>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="curriculum-section">
+                <h3>What You'll Learn</h3>
+                
+                <div class="free-preview">
+                    <p>📖 FREE PREVIEW</p>
+                    <span>Module 1: Fundamentals of Analog Design (Free Sample)</span>
+                </div>
+
+                <div class="module">
+                    <h4>Module 1: Fundamentals of Analog Design</h4>
+                    <p>Build a strong foundation in analog circuit design. Learn semiconductor physics, device models, and basic analog building blocks.</p>
+                </div>
+
+                <div class="module">
+                    <h4>Module 2: CMOS Technology & Device Physics</h4>
+                    <p>Deep dive into CMOS technology. Understand MOS transistors, drain current models, and second-order effects.</p>
+                </div>
+
+                <div class="module">
+                    <h4>Module 3: CMOS Amplifiers</h4>
+                    <p>Design common-source, common-drain, and cascode amplifiers. Learn gain, bandwidth, and noise calculations.</p>
+                </div>
+
+                <div class="module">
+                    <h4>Module 4: Operational Amplifiers</h4>
+                    <p>Design high-performance op-amps. Study two-stage op-amps, frequency compensation, and stability analysis.</p>
+                </div>
+
+                <div class="module">
+                    <h4>Module 5: Current Mirrors & Biasing</h4>
+                    <p>Master current mirror designs. Learn biasing techniques for better circuit performance and matching.</p>
+                </div>
+
+                <div class="module">
+                    <h4>Module 6: Frequency Response Analysis</h4>
+                    <p>Analyze circuit frequency response. Study bandwidth, gain-bandwidth product, and phase margin.</p>
+                </div>
+
+                <div class="module">
+                    <h4>Module 7-14: Advanced Topics</h4>
+                    <p>Comparators, analog switches, noise analysis, layout design, DRC/LVS, floorplanning, and industry design case studies.</p>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h3>Course Details</h3>
+                
+                <div class="sidebar-item">
+                    <ion-icon name="time-outline"></ion-icon>
+                    <span><strong>Duration:</strong> 4-5 weeks (self-paced)</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <ion-icon name="library-outline"></ion-icon>
+                    <span><strong>Modules:</strong> 14 comprehensive modules</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <ion-icon name="videocam-outline"></ion-icon>
+                    <span><strong>Videos:</strong> 50+ video tutorials</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <ion-icon name="document-outline"></ion-icon>
+                    <span><strong>Resources:</strong> Design files & tools</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <ion-icon name="award-outline"></ion-icon>
+                    <span><strong>Certificate:</strong> Course completion certificate</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <ion-icon name="checkmark-done-outline"></ion-icon>
+                    <span><strong>Access:</strong> Lifetime access to materials</span>
+                </div>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+
+                <div class="sidebar-item">
+                    <ion-icon name="star"></ion-icon>
+                    <span><strong>Rating:</strong> 4.9/5 (40+ students)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        const RAZORPAY_KEY = 'rzp_test_RS6oUVhJjDrJt';
+        const COURSE_ID = 'ANALOG';
+        const PRICE = 39900; // in paise (₹399 = 39900 paise)
+
+        function initiatePayment() {
+            const options = {
+                key: RAZORPAY_KEY,
+                amount: PRICE,
+                currency: 'INR',
+                name: 'VLSI Pathway',
+                description: 'Analog IC Design',
+                image: '../assets/images/logo-light (2).svg',
+                handler: function(response) {
+                    // Payment successful
+                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    // You'll integrate email sending here later
+                    window.location.href = '../courses/login.html';
+                },
+                prefill: {
+                    email: '',
+                    contact: ''
+                },
+                theme: {
+                    color: '#667eea'
+                }
+            };
+            
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
