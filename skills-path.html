@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RTL Design Path - VLSI Pathway</title>
+  <title>Important Skills Path - VLSI Pathway</title>
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/css/style.css">
@@ -14,6 +14,26 @@
   <link
     href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
     rel="stylesheet">
+
+  <style>
+    @media (max-width: 768px) {
+      .header .btn { 
+        display: none !important; 
+      }
+      
+      .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-actions .btn:first-child {
+        display: flex !important; 
+        font-size: 12px;
+        padding: 8px 15px;
+      }
+    }
+  </style>
 
 </head>
 
@@ -70,28 +90,28 @@
         <div class="container">
 
           <p class="section-subtitle">Specialization Path</p>
-          <h2 class="h2 section-title">RTL Design & Verification Path</h2>
+          <h2 class="h2 section-title">Important Skills Path</h2>
           <p class="section-text">
-            Master Register Transfer Level (RTL) design using Verilog and FPGA implementation. Learn verification methodologies and industry-standard tools.
+            Master essential tools and scripting languages used in VLSI design. Learn TCL scripting, Linux commands, and automation techniques for efficient chip design workflows.
           </p>
 
           <ul class="grid-list">
 
-            <!-- Course 1: RTL Design -->
+            <!-- Course 1: LT Spice -->
             <li>
               <div class="course-card">
                 <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                  <img src="./assets/images/course-3.jpg" width="370" height="220" loading="lazy"
-                    alt="RTL Design: Verilog, Vivado and FPGA Implementation" class="img-cover">
+                  <img src="./assets/images/course-1.jpg" width="370" height="220" loading="lazy"
+                    alt="LT Spice : Beginner to Advanced Level" class="img-cover">
                 </figure>
                 <div class="abs-badge">
                   <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-                  <span class="span">6 Weeks</span>
+                  <span class="span">3 Weeks</span>
                 </div>
                 <div class="card-content">
-                  <span class="badge">Intermediate</span>
+                  <span class="badge">Beginner</span>
                   <h3 class="h3">
-                    <a href="#" class="card-title">RTL Design: Verilog, Vivado and FPGA Implementation</a>
+                    <a href="./courses/ltspice-beginner.html" class="card-title">LT Spice : Beginner to Advanced Level</a>
                   </h3>
                   <div class="wrapper">
                     <div class="rating-wrapper">
@@ -101,7 +121,48 @@
                       <ion-icon name="star"></ion-icon>
                       <ion-icon name="star"></ion-icon>
                     </div>
-                    <p class="rating-text">(4.7/5 Rating)</p>
+                    <p class="rating-text">(5.0/5 Rating)</p>
+                  </div>
+                  <data class="price" value="399">₹399</data>
+                  <ul class="card-meta-list">
+                    <li class="card-meta-item">
+                      <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                      <span class="span">12 Modules</span>
+                    </li>
+                    <li class="card-meta-item">
+                      <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                      <span class="span">25+ Students</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <!-- Course 2: Coming Soon -->
+            <li>
+              <div class="course-card">
+                <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                  <img src="./assets/images/course-1.jpg" width="370" height="220" loading="lazy"
+                    alt="Important Skills - Coming Soon" class="img-cover">
+                </figure>
+                <div class="abs-badge">
+                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                  <span class="span">Coming Soon</span>
+                </div>
+                <div class="card-content">
+                  <span class="badge">Beginner</span>
+                  <h3 class="h3">
+                    <a href="#" class="card-title">TCL Scripting & Linux Commands (Coming Soon)</a>
+                  </h3>
+                  <div class="wrapper">
+                    <div class="rating-wrapper">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+                    <p class="rating-text">(Coming Soon)</p>
                   </div>
                   <data class="price" value="399">₹399</data>
                   <ul class="card-meta-list">
@@ -111,7 +172,7 @@
                     </li>
                     <li class="card-meta-item">
                       <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-                      <span class="span">20+ Students</span>
+                      <span class="span">Launching Soon</span>
                     </li>
                   </ul>
                 </div>
