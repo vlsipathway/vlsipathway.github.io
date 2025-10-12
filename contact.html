@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - VLSI Pathway</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    @media (max-width: 768px) {
+      .header .btn { 
+        display: none !important; 
+      }
+      
+      .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-actions .btn:first-child {
+        display: flex !important; 
+        font-size: 12px;
+        padding: 8px 15px;
+      }
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-info {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info h3 {
+      color: #667eea;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+
+    .contact-item {
+      margin-bottom: 30px;
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .contact-item ion-icon {
+      color: #667eea;
+      font-size: 28px;
+      margin-top: 5px;
+      min-width: 28px;
+    }
+
+    .contact-item-content h4 {
+      color: #333;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .contact-item-content p {
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .contact-item-content a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .contact-item-content a:hover {
+      color: #764ba2;
+    }
+
+    .info-box {
+      background: #f0f5ff;
+      padding: 20px;
+      border-radius: 5px;
+      border-left: 4px solid #667eea;
+      margin-top: 20px;
+    }
+
+    .info-box h4 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .info-box p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .social-section {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .social-section h4 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .social-links-list {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-link-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .social-link-item a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+    }
+
+    .social-link-item a:hover {
+      color: #764ba2;
+    }
+  </style>
+
+</head>
+
+<body id="top">
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="./index.html" class="logo">
+        <img src="./assets/images/logo-light (2).svg" width="162" height="50" alt="VLSI Pathway logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="wrapper">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-light (2).svg" width="162" height="50" alt="VLSI Pathway logo">
+          </a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="./index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./allcourses.html" class="navbar-link" data-nav-link>Courses</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./index.html#about" class="navbar-link" data-nav-link>About</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="./courses/login.html" class="btn has-before">
+          <span class="span">Student Login</span>
+          <ion-icon name="lock-open-outline" aria-hidden="true"></ion-icon>
+        </a>
+        <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <section class="section" style="padding-block-start: calc(75px + 80px); background-color: #f5f5f5;">
+        <div class="container">
+
+          <h1 class="h2 section-title" style="margin-bottom: 40px;">Get In Touch With Us</h1>
+
+          <div class="contact-container">
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+              <h3>Contact Information</h3>
+
+              <div class="contact-item">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div class="contact-item-content">
+                  <h4>Email</h4>
+                  <p>For course inquiries, technical support, and general questions:</p>
+                  <a href="mailto:vlsipathway@gmail.com">vlsipathway@gmail.com</a>
+                  <p style="margin-top: 8px; font-size: 0.9rem; color: #999;">
+                    Response time: 2-3 business days
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <ion-icon name="logo-linkedin"></ion-icon>
+                <div class="contact-item-content">
+                  <h4>LinkedIn</h4>
+                  <p>Connect with us on LinkedIn to stay updated:</p>
+                  <a href="https://www.linkedin.com/in/vlsipathway/" target="_blank">VLSI Pathway LinkedIn Profile</a>
+                </div>
+              </div>
+
+              <div class="info-box">
+                <h4>Quick Response Guide</h4>
+                <p>
+                  <strong>Course Inquiries:</strong> 2-3 business days<br>
+                  <strong>Technical Issues:</strong> 24-48 hours<br>
+                  <strong>Refund Requests:</strong> 2-3 business days
+                </p>
+              </div>
+
+              <div class="info-box">
+                <h4>Support Hours</h4>
+                <p>
+                  We provide email support <strong>Monday to Friday, 10 AM - 6 PM IST</strong>. During holidays and weekends, responses may be delayed.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Support Topics -->
+            <div class="contact-info">
+              <h3>How We Can Help</h3>
+
+              <div class="contact-item">
+                <ion-icon name="school-outline"></ion-icon>
+                <div class="contact-item-content">
+                  <h4>Course Information</h4>
+                  <p>Detailed information about specific courses, curriculum, and learning outcomes. Ask about prerequisites and course difficulty levels.</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <ion-icon name="build-outline"></ion-icon>
+                <div class="contact-item-content">
+                  <h4>Technical Support</h4>
+                  <p>Help with login issues, course access problems, video playback, or any technical difficulties you encounter.</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <ion-icon name="document-outline"></ion-icon>
+                <div class="contact-item-content">
+                  <h4>Refund & Cancellation</h4>
+                  <p>Questions about our refund policy, cancellation procedures, or requesting a refund within the eligible timeframe.</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <ion-icon name="people-outline"></ion-icon>
+                <div class="contact-item-content">
+                  <h4>Partnerships & Collaboration</h4>
+                  <p>Interested in collaboration, affiliate programs, or corporate training? Get in touch with our partnerships team.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Additional Information -->
+          <div style="background: white; padding: 40px; border-radius: 10px; margin-top: 40px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+            <h3 style="color: #667eea; margin-bottom: 20px; font-size: 1.3rem;">FAQs</h3>
+
+            <div style="margin-bottom: 25px;">
+              <h4 style="color: #333; margin-bottom: 8px;">When will I receive a response to my email?</h4>
+              <p style="color: #666;">We aim to respond to all inquiries within 2-3 business days. Technical support may receive priority depending on urgency.</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h4 style="color: #333; margin-bottom: 8px;">Can I call VLSI Pathway for support?</h4>
+              <p style="color: #666;">Currently, we provide support through email and LinkedIn. Email is our primary support channel and ensures we can track your inquiry effectively.</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h4 style="color: #333; margin-bottom: 8px;">What information should I include in my email?</h4>
+              <p style="color: #666;">Please include your full name, email address, course name (if applicable), order ID, and a detailed description of your issue or question. This helps us resolve your query faster.</p>
+            </div>
+
+            <div>
+              <h4 style="color: #333; margin-bottom: 8px;">How do I access course materials after purchase?</h4>
+              <p style="color: #666;">After payment, you'll receive an email with login credentials. Visit <strong>vlsipathway.com/courses/login.html</strong>, enter your details, and access your courses from your dashboard.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="footer" id="footer" style="background-image: url('./assets/images/footer-bg.png');">
+    <div class="footer-top section">
+      <div class="container grid-list">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-dark (1).svg" width="162" height="50" alt="VLSI Pathway logo">
+          </a>
+          <p class="footer-brand-text">
+            VLSI Pathway offers instructor-led courses, hands-on labs and mentorship focused on semiconductor and VLSI design.
+          </p>
+          <div class="wrapper">
+            <span class="span">Email:</span>
+            <a href="mailto:vlsipathway@gmail.com" class="footer-link">vlsipathway@gmail.com</a>
+          </div>
+        </div>
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Important Sections</p>
+          </li>
+          <li>
+            <a href="./index.html#about" class="footer-link">About Us</a>
+          </li>
+          <li>
+            <a href="./refund.html" class="footer-link">Refund Policy</a>
+          </li>
+          <li>
+            <a href="./ship.html" class="footer-link">Shipping Info</a>
+          </li>
+          <li>
+            <a href="./contact.html" class="footer-link">Contact Us</a>
+          </li>
+        </ul>
+        <div class="footer-list">
+          <p class="footer-list-title">Social Links</p>
+          <ul class="social-list">
+            <li>
+              <a href="https://www.linkedin.com/in/vlsipathway/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@VLSIPATHWAY" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">© VLSI Pathway All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-top-btn" aria-label="back top top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
