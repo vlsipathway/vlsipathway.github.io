@@ -20,7 +20,6 @@
             margin: 0 auto;
         }
 
-        /* Color Scheme - Matching Main Website */
         :root {
             --primary-color: #667eea;
             --primary-dark: #764ba2;
@@ -29,7 +28,6 @@
             --accent-green: #4caf50;
         }
 
-        /* Navbar Styling - Matching Main Website */
         .navbar {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -58,7 +56,6 @@
             transform: translateY(-2px);
         }
 
-        /* Back Button */
         .back-btn {
             background: #e0e0e0;
             color: #333;
@@ -74,7 +71,6 @@
             transform: translateY(-2px);
         }
 
-        /* Course Header */
         .course-header {
             background: white;
             padding: 40px;
@@ -99,7 +95,6 @@
             line-height: 1.6;
         }
 
-        /* Price Section - Matching Website Style */
         .price-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -136,7 +131,6 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -149,7 +143,6 @@
             gap: 30px;
         }
 
-        /* Description Section */
         .description-section {
             background: white;
             padding: 30px;
@@ -181,7 +174,6 @@
             margin-bottom: 8px;
         }
 
-        /* Curriculum Section */
         .curriculum-section {
             background: white;
             padding: 30px;
@@ -222,30 +214,86 @@
             font-size: 14px;
         }
 
-        /* Video Container - SECURED */
-        .video-embed-container {
+        /* CUSTOM SECURE VIDEO PLAYER STYLES */
+        .video-player-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .video-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .custom-player-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            margin-top: 10px;
-            border-radius: 5px;
         }
-        .video-embed-container iframe {
+
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            background: #f9f9f9;
+            padding: 15px;
             border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .security-notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .security-notice strong {
+            color: #856404;
+        }
+
+        .security-notice p {
+            color: #856404;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 5px;
         }
 
         .free-preview {
             background: var(--secondary-bg);
             padding: 15px;
             border-radius: 5px;
-            margin-bottom: 20px;
             border-left: 4px solid var(--accent-green);
         }
         .free-preview p {
@@ -254,7 +302,6 @@
             margin-bottom: 10px;
         }
 
-        /* Sidebar */
         .sidebar {
             background: white;
             padding: 30px;
@@ -281,7 +328,6 @@
             font-size: 20px;
         }
 
-        /* Responsive Design */
         @media (max-width: 900px) {
             .content-grid {
                 grid-template-columns: 1fr;
@@ -321,12 +367,37 @@
 
         <div class="content-grid">
             <div class="main-content">
+                
+                <!-- CUSTOM SECURE VIDEO PLAYER -->
+                <div class="video-player-section free-preview">
+                    <div class="video-title">Lecture 1: Who is this course for? (FREE PREVIEW)</div>
+                    
+                    <div class="custom-player-wrapper">
+                        <div class="video-container">
+                            <iframe 
+                                src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0&controls=1&modestbranding=1&fs=0&disablekb=1&showinfo=0&iv_load_policy=3" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <div class="video-info">
+                        <p><strong>Watch this video to understand if this course aligns with your career goals.</strong></p>
+                        <p>Duration: 2 minutes 11 seconds | Free Preview Lecture</p>
+                    </div>
+
+                    <div class="security-notice">
+                        <strong>⚠️ Security Notice:</strong>
+                        <p>This course content is for authorized users only. Unauthorized sharing, downloading, or redistribution of course materials is strictly prohibited and violates our Terms of Service.</p>
+                    </div>
+                </div>
+
                 <!-- Detailed Description Section -->
                 <div class="description-section">
                     <h3>Course Overview</h3>
                     <p>LTSpice is a free yet powerful circuit simulation tool widely used in electronics, VLSI, and IC design. Whether you are a student, researcher, or professional engineer, mastering LTSpice will strengthen your ability to design, analyze, and test electronic circuits.</p>
                     <p>This course takes you on a step-by-step journey, starting from the fundamentals of LTSpice, building simple circuits, and performing essential analyses. You will then progress toward advanced topics, including MOSFET characterization, CMOS inverter analysis, and digital circuit implementation such as NAND, NOR, and Full Adder design using CMOS technology files.</p>
-                    <p>The focus is practical learning — every concept is explained through examples, hands-on circuit design, and real-world applications. You'll also gain access to technology files, reference materials, and troubleshooting tips to confidently work on your own projects.</p>
 
                     <h4>What You Will Be Able to Do:</h4>
                     <ul>
@@ -336,10 +407,7 @@
                         <li>Work with model files and create custom symbols</li>
                         <li>Characterize MOSFET devices using 180nm CMOS technology</li>
                         <li>Design and simulate CMOS inverters, logic gates, and a full adder</li>
-                        <li>Apply LTSpice to practical projects like ring oscillators and op-amp circuits</li>
                     </ul>
-
-                    <p>Take the first step toward becoming confident in circuit simulation and CMOS design with LTSpice — enroll today!</p>
                 </div>
 
                 <!-- Curriculum Section -->
@@ -347,17 +415,6 @@
                     <h3>Comprehensive Course Curriculum (36 Lectures)</h3>
 
                     <div class="section-title">Section 1: Introduction</div>
-                    <div class="module free-preview">
-                        <h4>Lecture 1: Who is this course for? (FREE PREVIEW)</h4>
-                        <div class="module-details">Watch this video to understand if this course aligns with your career goals.</div>
-                        <div class="video-embed-container">
-                            <iframe src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0&controls=1&modestbranding=1&fs=0&disablekb=1&showinfo=0" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" 
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
                     <div class="module">
                         <h4>Lecture 2: Prerequisites</h4>
                         <div class="module-details">Basic electronics knowledge, familiarity with circuits.</div>
@@ -375,7 +432,7 @@
                         <h4>Lecture 5: Creating your first schematic</h4>
                     </div>
                     <div class="module">
-                        <h4>Lecture 6: Toolbar and file menu basics (open, save, edit, etc.)</h4>
+                        <h4>Lecture 6: Toolbar and file menu basics</h4>
                     </div>
 
                     <div class="section-title">Section 3: Customization and Workflow</div>
@@ -383,7 +440,7 @@
                         <h4>Lecture 7: Customizing schematics and waveform viewer</h4>
                     </div>
                     <div class="module">
-                        <h4>Lecture 8: Control panel overview (colors, fonts, preferences)</h4>
+                        <h4>Lecture 8: Control panel overview</h4>
                     </div>
                     <div class="module">
                         <h4>Lecture 9: Efficient navigation & tips</h4>
@@ -391,97 +448,12 @@
 
                     <div class="section-title">Section 4: Understanding Analysis Commands</div>
                     <div class="module">
-                        <h4>Lecture 10: Introduction to analysis types</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 11: .op – Operating point analysis</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 12: .tran – Transient analysis</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 13: .dc – DC sweep</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 14: .step param – Parametric sweep</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 15: .tf – Transfer function analysis</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 16: .ac – AC analysis</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 17: .temp – Temperature sweep</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 18: Hands-on examples for each analysis</h4>
+                        <h4>Lecture 10-18: Various Analysis Types & Hands-on Examples</h4>
                     </div>
 
-                    <div class="section-title">Section 5: Learning Through Simple Circuits</div>
+                    <div class="section-title">Section 5-10: Advanced Topics</div>
                     <div class="module">
-                        <h4>Lecture 19: Design and Simulation of Resistive divider circuit</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 20: Design and Simulation of a RC low-pass filter</h4>
-                    </div>
-
-                    <div class="section-title">Section 6: Symbols, Models, and Libraries</div>
-                    <div class="module">
-                        <h4>Lecture 21: How to create a custom schematic symbol</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 22: Importing and using model files</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 23: Working with technology files (e.g., CMOS 180 nm PDK)</h4>
-                    </div>
-
-                    <div class="section-title">Section 7: MOSFETs and Advanced Circuits</div>
-                    <div class="module">
-                        <h4>Lecture 24: MOSFET characteristics using 180nm technology file</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 25: Plotting Id-Vgs, Id-Vds, gm, ro etc.</h4>
-                    </div>
-
-                    <div class="section-title">Section 8: CMOS Circuit Design in LTSpice</div>
-                    <div class="module">
-                        <h4>Lecture 26: CMOS Inverter design and analysis</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 27: DC transfer characteristics</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 28: Threshold voltage estimation</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 29: Noise margin calculation</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 30: Design and Simulation of CMOS logic gates (NAND, NOR etc)</h4>
-                    </div>
-
-                    <div class="section-title">Section 9: Resources and Extras</div>
-                    <div class="module">
-                        <h4>Lecture 31: Providing technology files (e.g., 180nm CMOS)</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 32: Recommended books and articles for deeper learning</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 33: Troubleshooting common LTSpice errors</h4>
-                    </div>
-
-                    <div class="section-title">Section 10: Wrap-Up</div>
-                    <div class="module">
-                        <h4>Lecture 34: Final thoughts</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 35: Real-world applications of LTSpice</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 36: Next steps for learners (moving towards VLSI/Analog IC design)</h4>
+                        <h4>Lectures 19-36: Learning circuits through MOSFETs, CMOS design, and practical applications</h4>
                     </div>
                 </div>
             </div>
@@ -491,7 +463,7 @@
 
                 <div class="sidebar-item">
                     <ion-icon name="school-outline"></ion-icon>
-                    <span>Electronics and Electrical Engineering students</span>
+                    <span>Electronics & Engineering students</span>
                 </div>
                 <div class="sidebar-item">
                     <ion-icon name="search-outline"></ion-icon>
@@ -501,22 +473,18 @@
                     <ion-icon name="rocket-outline"></ion-icon>
                     <span>VLSI and IC design enthusiasts</span>
                 </div>
-                <div class="sidebar-item">
-                    <ion-icon name="briefcase-outline"></ion-icon>
-                    <span>Professionals and hobbyists</span>
-                </div>
 
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
 
                 <h3>Course Features</h3>
                 <div class="sidebar-item">
                     <ion-icon name="time-outline"></ion-icon>
-                    <span><strong>Duration:</strong> 3-4 weeks (self-paced)</span>
+                    <span><strong>Duration:</strong> 3-4 weeks</span>
                 </div>
 
                 <div class="sidebar-item">
                     <ion-icon name="library-outline"></ion-icon>
-                    <span><strong>Sections:</strong> 10 comprehensive sections</span>
+                    <span><strong>Sections:</strong> 10 comprehensive</span>
                 </div>
 
                 <div class="sidebar-item">
@@ -525,18 +493,13 @@
                 </div>
 
                 <div class="sidebar-item">
-                    <ion-icon name="document-outline"></ion-icon>
-                    <span><strong>Resources:</strong> Tech files & reference notes</span>
-                </div>
-
-                <div class="sidebar-item">
                     <ion-icon name="award-outline"></ion-icon>
-                    <span><strong>Certificate:</strong> Course completion certificate</span>
+                    <span><strong>Certificate:</strong> Completion</span>
                 </div>
 
                 <div class="sidebar-item">
                     <ion-icon name="checkmark-done-outline"></ion-icon>
-                    <span><strong>Access:</strong> Lifetime access to materials</span>
+                    <span><strong>Access:</strong> Lifetime</span>
                 </div>
 
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
@@ -586,6 +549,19 @@
             });
             rzp.open();
         }
+
+        // Prevent right-click on video
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.custom-player-wrapper').addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                alert('Right-click is disabled on video content.');
+                return false;
+            });
+        });
+
+        // Security console warning
+        console.log('%c⚠️ SECURITY NOTICE', 'color: red; font-size: 20px; font-weight: bold;');
+        console.log('%cUnauthorized recording or sharing of this content is prohibited.', 'color: red; font-size: 14px;');
     </script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
