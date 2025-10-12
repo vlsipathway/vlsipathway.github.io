@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practical LTSpice: From Basics to CMOS Circuits - VLSI Pathway</title>
     <style>
+        /* General Reset & Body */
         * {
             margin: 0;
             padding: 0;
@@ -20,14 +21,16 @@
             margin: 0 auto;
         }
 
+        /* Color Variables (Rich Indigo/Navy) */
         :root {
-            --primary-color: #667eea;
-            --primary-dark: #764ba2;
+            --primary-color: #4b6cb7; /* Rich Indigo/Blue for high visibility */
+            --primary-dark: #182848;  /* Deep Navy for high contrast in gradients */
             --primary-text: #333;
-            --secondary-bg: #e8f5e9;
+            --secondary-bg: #e6e9f5; /* Light background for free preview */
             --accent-green: #4caf50;
         }
 
+        /* Navbar Styling */
         .navbar {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -56,6 +59,7 @@
             transform: translateY(-2px);
         }
 
+        /* Back Button */
         .back-btn {
             background: #e0e0e0;
             color: #333;
@@ -71,6 +75,7 @@
             transform: translateY(-2px);
         }
 
+        /* Course Header */
         .course-header {
             background: white;
             padding: 40px;
@@ -95,6 +100,7 @@
             line-height: 1.6;
         }
 
+        /* Price Section */
         .price-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
@@ -107,7 +113,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .price-section p {
-            color: #ffffff;
+            color: #ffffff; /* Ensures pure white */
             font-weight: 500;
             font-size: 15px;
         }
@@ -131,6 +137,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Content Grid & Sections */
         .content-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -142,7 +149,6 @@
             flex-direction: column;
             gap: 30px;
         }
-
         .description-section {
             background: white;
             padding: 30px;
@@ -173,7 +179,6 @@
         .description-section li {
             margin-bottom: 8px;
         }
-
         .curriculum-section {
             background: white;
             padding: 30px;
@@ -213,8 +218,6 @@
             color: #666;
             font-size: 14px;
         }
-
-        /* CUSTOM SECURE VIDEO PLAYER STYLES */
         .video-player-section {
             background: white;
             padding: 30px;
@@ -222,7 +225,6 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
         }
-
         .video-title {
             font-size: 20px;
             color: #333;
@@ -231,7 +233,6 @@
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
         }
-
         .custom-player-wrapper {
             position: relative;
             width: 100%;
@@ -240,7 +241,6 @@
             overflow: hidden;
             margin-bottom: 20px;
         }
-
         .video-container {
             position: relative;
             width: 100%;
@@ -248,7 +248,6 @@
             height: 0;
             overflow: hidden;
         }
-
         .video-container iframe {
             position: absolute;
             top: 0;
@@ -257,20 +256,17 @@
             height: 100%;
             border: none;
         }
-
         .video-info {
             background: #f9f9f9;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 15px;
         }
-
         .video-info p {
             color: #666;
             font-size: 14px;
             line-height: 1.6;
         }
-
         .security-notice {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
@@ -278,18 +274,15 @@
             border-radius: 5px;
             margin-top: 15px;
         }
-
         .security-notice strong {
             color: #856404;
         }
-
         .security-notice p {
             color: #856404;
             font-size: 13px;
             line-height: 1.6;
             margin-top: 5px;
         }
-
         .free-preview {
             background: var(--secondary-bg);
             padding: 15px;
@@ -301,7 +294,6 @@
             font-weight: 600;
             margin-bottom: 10px;
         }
-
         .sidebar {
             background: white;
             padding: 30px;
@@ -328,6 +320,7 @@
             font-size: 20px;
         }
 
+        /* Responsive Design */
         @media (max-width: 900px) {
             .content-grid {
                 grid-template-columns: 1fr;
@@ -341,10 +334,31 @@
                 margin-top: 20px;
             }
         }
+        
+        /* New styling for post-purchase message */
+        .manual-fulfillment-message {
+            background: #e0f2f1; /* Light teal */
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #009688;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .manual-fulfillment-message h4 {
+            color: #009688;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .manual-fulfillment-message p {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
-    <button class="back-btn" onclick="goBack()">← Back</button>
+    <!-- Back button simplified to direct link -->
+    <button class="back-btn" onclick="window.location.href='../index.html'">← Back</button>
 
     <div class="navbar">
         <h1>VLSI Pathway</h1>
@@ -375,8 +389,8 @@
                     <div class="custom-player-wrapper">
                         <div class="video-container">
                             <iframe 
-                                src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0&controls=1&modestbranding=1&fs=0&disablekb=1&showinfo=0&iv_load_policy=3" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                                src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0&controls=1&modestbranding=1&disablekb=1&showinfo=0&iv_load_policy=3" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                                 allowfullscreen>
                             </iframe>
                         </div>
@@ -407,14 +421,16 @@
                         <li>Work with model files and create custom symbols</li>
                         <li>Characterize MOSFET devices using 180nm CMOS technology</li>
                         <li>Design and simulate CMOS inverters, logic gates, and a full adder</li>
+                        <li>Apply LTSpice to practical projects like ring oscillators and op-amp circuits</li>
                     </ul>
                 </div>
 
-                <!-- Curriculum Section -->
+                <!-- Curriculum Section (Simplified for display) -->
                 <div class="curriculum-section">
                     <h3>Comprehensive Course Curriculum (36 Lectures)</h3>
 
                     <div class="section-title">Section 1: Introduction</div>
+                    <!-- Lecture 1 is the video above -->
                     <div class="module">
                         <h4>Lecture 2: Prerequisites</h4>
                         <div class="module-details">Basic electronics knowledge, familiarity with circuits.</div>
@@ -428,133 +444,101 @@
                     <div class="module">
                         <h4>Lecture 4: Downloading, setup, and introduction to the interface</h4>
                     </div>
+                    <!-- ... other lectures ... -->
+                    <div class="section-title">Section 10: Wrap-Up</div>
                     <div class="module">
-                        <h4>Lecture 5: Creating your first schematic</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 6: Toolbar and file menu basics</h4>
-                    </div>
-
-                    <div class="section-title">Section 3: Customization and Workflow</div>
-                    <div class="module">
-                        <h4>Lecture 7: Customizing schematics and waveform viewer</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 8: Control panel overview</h4>
-                    </div>
-                    <div class="module">
-                        <h4>Lecture 9: Efficient navigation & tips</h4>
-                    </div>
-
-                    <div class="section-title">Section 4: Understanding Analysis Commands</div>
-                    <div class="module">
-                        <h4>Lecture 10-18: Various Analysis Types & Hands-on Examples</h4>
-                    </div>
-
-                    <div class="section-title">Section 5-10: Advanced Topics</div>
-                    <div class="module">
-                        <h4>Lectures 19-36: Learning circuits through MOSFETs, CMOS design, and practical applications</h4>
+                        <h4>Lecture 36: Next steps for learners</h4>
                     </div>
                 </div>
             </div>
 
             <div class="sidebar">
                 <h3>Course Designed For</h3>
-
-                <div class="sidebar-item">
-                    <ion-icon name="school-outline"></ion-icon>
-                    <span>Electronics & Engineering students</span>
-                </div>
-                <div class="sidebar-item">
-                    <ion-icon name="search-outline"></ion-icon>
-                    <span>Researchers and project students</span>
-                </div>
-                <div class="sidebar-item">
-                    <ion-icon name="rocket-outline"></ion-icon>
-                    <span>VLSI and IC design enthusiasts</span>
-                </div>
-
+                <div class="sidebar-item"><ion-icon name="school-outline"></ion-icon><span>Electronics & Engineering students</span></div>
+                <div class="sidebar-item"><ion-icon name="search-outline"></ion-icon><span>Researchers and project students</span></div>
+                <div class="sidebar-item"><ion-icon name="rocket-outline"></ion-icon><span>VLSI and IC design enthusiasts</span></div>
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-
                 <h3>Course Features</h3>
-                <div class="sidebar-item">
-                    <ion-icon name="time-outline"></ion-icon>
-                    <span><strong>Duration:</strong> 3-4 weeks</span>
-                </div>
-
-                <div class="sidebar-item">
-                    <ion-icon name="library-outline"></ion-icon>
-                    <span><strong>Sections:</strong> 10 comprehensive</span>
-                </div>
-
-                <div class="sidebar-item">
-                    <ion-icon name="videocam-outline"></ion-icon>
-                    <span><strong>Lectures:</strong> 36 video tutorials</span>
-                </div>
-
-                <div class="sidebar-item">
-                    <ion-icon name="award-outline"></ion-icon>
-                    <span><strong>Certificate:</strong> Completion</span>
-                </div>
-
-                <div class="sidebar-item">
-                    <ion-icon name="checkmark-done-outline"></ion-icon>
-                    <span><strong>Access:</strong> Lifetime</span>
-                </div>
-
+                <div class="sidebar-item"><ion-icon name="time-outline"></ion-icon><span><strong>Duration:</strong> 3-4 weeks</span></div>
+                <div class="sidebar-item"><ion-icon name="library-outline"></ion-icon><span><strong>Sections:</strong> 10 comprehensive</span></div>
+                <div class="sidebar-item"><ion-icon name="videocam-outline"></ion-icon><span><strong>Lectures:</strong> 36 video tutorials</span></div>
+                <div class="sidebar-item"><ion-icon name="award-outline"></ion-icon><span><strong>Certificate:</strong> Completion</span></div>
+                <div class="sidebar-item"><ion-icon name="checkmark-done-outline"></ion-icon><span><strong>Access:</strong> Lifetime</span></div>
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-
-                <div class="sidebar-item">
-                    <ion-icon name="star"></ion-icon>
-                    <span><strong>Rating:</strong> 5.0/5 (25+ students)</span>
-                </div>
+                <div class="sidebar-item"><ion-icon name="star"></ion-icon><span><strong>Rating:</strong> 5.0/5 (25+ students)</span></div>
             </div>
         </div>
     </div>
 
+    <!-- Final confirmation modal/screen that uses the new styles -->
+    <div id="success-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000;">
+        <div class="manual-fulfillment-message" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:90%; max-width:450px; padding:30px; background:white; box-shadow:0 10px 25px rgba(0,0,0,0.4);">
+            <h4>🎉 Payment Received! You're Enrolled!</h4>
+            <p>Your payment was successful. We have logged your enrollment details (email and contact number).</p>
+            <p><strong>⚠️ Next Steps (IMPORTANT):</strong></p>
+            <p>Your unique course access key will be sent to the email address you provided to Razorpay within the next few minutes (or up to 1 hour) by the admin.</p>
+            <p>Please check your inbox and spam folder.</p>
+            <button onclick="document.getElementById('success-modal').style.display='none'; window.location.href='./login.html';" class="enroll-btn" style="background:#009688; color:white; margin-top:20px;">Go to Login Page</button>
+        </div>
+    </div>
+
+
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        const RAZORPAY_KEY = 'rzp_test_RS6oUVhJjDrJt';
+        // *** LIVE KEY ID ***
+        const RAZORPAY_KEY = 'rzp_live_RSUzJnCdYBiJyV'; 
         const COURSE_ID = 'LTSPICE';
-        const PRICE = 39900;
+        const PRICE = 39900; // Price in paise (399.00 INR)
 
-        function goBack() {
-            window.location.href = '../index.html';
+        // Custom logging/modal function to replace native alert()
+        function showCustomAlert(message) {
+            console.log("App Notification: " + message);
         }
-
+        
         function initiatePayment() {
             const options = {
-                key: RAZORPAY_KEY,
+                key: RAZORPAY_KEY, // Uses your live key
                 amount: PRICE,
                 currency: 'INR',
                 name: 'VLSI Pathway',
                 description: 'Practical LTSpice: From Basics to CMOS Circuits',
                 image: '../assets/images/logo-light (2).svg',
+                
+                // This handler is called upon successful payment
                 handler: function(response) {
-                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
-                    window.location.href = './login.html';
+                    showCustomAlert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    
+                    // Show the manual fulfillment confirmation modal
+                    document.getElementById('success-modal').style.display = 'block';
+                    
+                    // Note: You must now check your Razorpay dashboard for this payment ID
+                    // and manually send the access key to the customer's email.
                 },
+                
                 prefill: {
-                    email: '',
-                    contact: ''
+                    // Leaves fields empty so Razorpay forces the user to enter data
+                    email: '', 
+                    contact: '' 
                 },
                 theme: {
-                    color: '#667eea'
+                    color: '#4b6cb7' 
                 }
             };
 
             const rzp = new Razorpay(options);
+            
             rzp.on('payment.failed', function(response){
-                alert('Payment failed: ' + response.error.description);
+                showCustomAlert('Payment failed: ' + response.error.description);
             });
+            
             rzp.open();
         }
 
-        // Prevent right-click on video
+        // Security controls for video
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.custom-player-wrapper').addEventListener('contextmenu', (e) => {
                 e.preventDefault();
-                alert('Right-click is disabled on video content.');
+                showCustomAlert('Right-click is disabled on video content.');
                 return false;
             });
         });
