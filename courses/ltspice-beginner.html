@@ -137,6 +137,34 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Email Input Styling */
+        .email-input-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .email-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s;
+        }
+        .email-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(75, 108, 183, 0.5);
+        }
+        .email-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-text);
+        }
+        /* End Email Input Styling */
+
+
         /* Content Grid & Sections */
         .content-grid {
             display: grid;
@@ -328,10 +356,18 @@
             .price-section {
                 flex-direction: column;
                 text-align: center;
+                padding-bottom: 20px; /* Adjust padding for email field */
+            }
+            .email-input-group {
+                margin-top: 10px;
+                margin-bottom: 15px;
             }
             .enroll-btn {
                 width: 100%;
                 margin-top: 20px;
+            }
+            .price-section > div {
+                width: 100%; /* Make price details full width */
             }
         }
         
@@ -369,6 +405,14 @@
         <div class="course-header">
             <h2>Practical LTSpice: From Basics to CMOS Circuits</h2>
             <h3>Master circuit simulation and analysis for VLSI and IC design.</h3>
+            
+            <!-- Email Input Group -->
+            <div class="email-input-group">
+                <label for="customerEmail" class="email-label">
+                    Enter your Email (Required for Access Key Delivery):
+                </label>
+                <input type="email" id="customerEmail" class="email-input" placeholder="you@example.com" required>
+            </div>
 
             <div class="price-section">
                 <div>
@@ -520,9 +564,18 @@
         }
         
         function initiatePayment() {
+            const emailInput = document.getElementById('customerEmail');
+            const userEmail = emailInput.value.trim();
+
+            if (!userEmail || !userEmail.includes('@') || !userEmail.includes('.')) {
+                showCustomAlert("Please enter a valid email address before enrolling.");
+                alert("Please enter a valid email address (Required for key delivery).");
+                return;
+            }
+
             const options = {
-                key: RAZORPAY_KEY, // Uses your live key
-                amount: PRICE, // Uses the updated price (9900 paise)
+                key: RAZORPAY_KEY, 
+                amount: PRICE, 
                 currency: 'INR',
                 name: 'VLSI Pathway',
                 description: 'Practical LTSpice: From Basics to CMOS Circuits',
@@ -534,13 +587,16 @@
                     
                     // Show the manual fulfillment confirmation modal
                     document.getElementById('success-modal').style.display = 'block';
+                    
+                    // IMPORTANT: Log the captured email to the console. You must match 
+                    // this email to the transaction details in your Razorpay dashboard.
+                    console.log(`CUSTOMER EMAIL CAPTURED: ${userEmail}`);
                 },
                 
                 prefill: {
-                    // Leaves fields empty to force the user to enter data.
-                    // This explicitly asks for BOTH contact AND email.
-                    email: '', 
-                    contact: '' 
+                    // Pass the email captured on our page to Razorpay
+                    email: userEmail, 
+                    contact: '' // Still forcing contact number collection
                 },
                 
                 // Theme setting
@@ -548,11 +604,11 @@
                     color: '#4b6cb7' 
                 },
                 
-                // Optional: To further try and force email/contact collection
+                // Optional configuration to maximize visibility of contact fields
                 config: {
                     display: {
                         blocks: {
-                            bank: { // Try to make contact/email visible even for UPI
+                            bank: { 
                                 contact: true,
                                 email: true
                             }
@@ -565,6 +621,7 @@
             
             rzp.on('payment.failed', function(response){
                 showCustomAlert('Payment failed: ' + response.error.description);
+                alert('Payment failed. Please try again.');
             });
             
             rzp.open();
@@ -572,11 +629,15 @@
 
         // Security controls for video
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('.custom-player-wrapper').addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-                showCustomAlert('Right-click is disabled on video content.');
-                return false;
-            });
+            const playerWrapper = document.querySelector('.custom-player-wrapper');
+            if (playerWrapper) {
+                playerWrapper.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    showCustomAlert('Right-click is disabled on video content.');
+                    // Do not use native alert() here, use a custom modal if needed
+                    return false;
+                });
+            }
         });
 
         // Security console warning
