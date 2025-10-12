@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping and Delivery - VLSI Pathway</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    @media (max-width: 768px) {
+      .header .btn { 
+        display: none !important; 
+      }
+      
+      .header-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .header-actions .btn:first-child {
+        display: flex !important; 
+        font-size: 12px;
+        padding: 8px 15px;
+      }
+    }
+
+    .info-content {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .info-content h3 {
+      color: #667eea;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .info-content p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .info-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+
+    .info-content li {
+      margin-bottom: 10px;
+      list-style-type: disc;
+    }
+
+    .highlight {
+      background-color: #e8f5e9;
+      padding: 20px;
+      border-left: 4px solid #4caf50;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+
+    .feature-box {
+      background: #f0f5ff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 4px solid #667eea;
+    }
+  </style>
+
+</head>
+
+<body id="top">
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="./index.html" class="logo">
+        <img src="./assets/images/logo-light (2).svg" width="162" height="50" alt="VLSI Pathway logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <div class="wrapper">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-light (2).svg" width="162" height="50" alt="VLSI Pathway logo">
+          </a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="./index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./allcourses.html" class="navbar-link" data-nav-link>Courses</a>
+          </li>
+          <li class="navbar-item">
+            <a href="./contact.html" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="./courses/login.html" class="btn has-before">
+          <span class="span">Student Login</span>
+          <ion-icon name="lock-open-outline" aria-hidden="true"></ion-icon>
+        </a>
+        <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+
+      <section class="section" style="padding-block-start: calc(75px + 80px); background-color: #f5f5f5;">
+        <div class="container">
+
+          <h1 class="h2 section-title" style="margin-bottom: 40px;">Shipping and Delivery Information</h1>
+
+          <div class="info-content">
+
+            <h3>Digital Delivery - No Physical Shipping</h3>
+            <p>
+              VLSI Pathway offers exclusively digital courses delivered online. All course materials, videos, and resources are delivered instantly upon purchase. We do not ship any physical products or materials.
+            </p>
+
+            <div class="highlight">
+              <strong>Quick Start:</strong> Upon successful payment, you will receive an email with your login credentials and instructions to access your course immediately.
+            </div>
+
+            <h3>Instant Access</h3>
+            <p>Once you have completed your purchase, you will have:</p>
+            <ul>
+              <li><strong>Immediate access</strong> to all course materials and resources</li>
+              <li><strong>Lifetime access</strong> to the course content you purchased</li>
+              <li><strong>Online access</strong> from any device (desktop, tablet, mobile)</li>
+              <li><strong>24/7 availability</strong> - learn at your own pace, anytime, anywhere</li>
+            </ul>
+
+            <h3>How to Access Your Course</h3>
+            <ol>
+              <li>Complete your payment through Razorpay</li>
+              <li>You will receive a confirmation email immediately</li>
+              <li>Check your email for login credentials and course access link</li>
+              <li>Visit the login page at <strong>vlsipathway.com/courses/login.html</strong></li>
+              <li>Enter your email and access key to log in</li>
+              <li>Access your purchased courses from your dashboard</li>
+            </ol>
+
+            <h3>What You'll Receive</h3>
+            <div class="feature-box">
+              <ul>
+                <li>Access to all video tutorials and lectures</li>
+                <li>Course materials and learning resources</li>
+                <li>Module-wise structured content</li>
+                <li>Downloadable course notes and files</li>
+                <li>Certificate of completion upon finishing the course</li>
+                <li>Lifetime access to course content</li>
+              </ul>
+            </div>
+
+            <h3>Delivery Timeline</h3>
+            <p>
+              Since all courses are digital, delivery is <strong>instantaneous</strong>. You will have access to your course content immediately after payment processing, which typically occurs within seconds to a few minutes.
+            </p>
+
+            <h3>System Requirements</h3>
+            <p>To access our online courses, you need:</p>
+            <ul>
+              <li>A stable internet connection</li>
+              <li>A web browser (Chrome, Firefox, Safari, Edge, etc.)</li>
+              <li>A device (computer, tablet, or smartphone)</li>
+              <li>At least 100 MB of free storage space (if downloading materials)</li>
+            </ul>
+
+            <h3>Troubleshooting Access Issues</h3>
+            <p>
+              If you experience any issues accessing your course or logging in, please contact us immediately at <strong>vlsipathway@gmail.com</strong> with your order details. Our support team will help you resolve the issue within 2-3 business days.
+            </p>
+
+            <h3>Device Compatibility</h3>
+            <p>
+              Our courses are optimized for all devices:
+            </p>
+            <ul>
+              <li><strong>Desktop/Laptop:</strong> Full experience with all features</li>
+              <li><strong>Tablet:</strong> Optimized responsive design</li>
+              <li><strong>Mobile:</strong> Mobile-friendly interface for on-the-go learning</li>
+            </ul>
+
+            <h3>Data Security</h3>
+            <p>
+              Your course materials are securely stored and protected. All data transfers are encrypted using industry-standard security protocols to ensure your information remains safe and confidential.
+            </p>
+
+            <h3>Contact Us</h3>
+            <p>
+              For any questions about course delivery or access, please reach out to us:
+            </p>
+            <ul>
+              <li><strong>Email:</strong> <a href="mailto:vlsipathway@gmail.com" style="color: #667eea;">vlsipathway@gmail.com</a></li>
+              <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vlsipathway/" target="_blank" style="color: #667eea;">VLSI Pathway</a></li>
+            </ul>
+
+            <p style="margin-top: 40px; color: #666; font-size: 0.9rem;">
+              <strong>Last Updated:</strong> December 2024
+            </p>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="footer" id="footer" style="background-image: url('./assets/images/footer-bg.png');">
+    <div class="footer-top section">
+      <div class="container grid-list">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo-dark (1).svg" width="162" height="50" alt="VLSI Pathway logo">
+          </a>
+          <p class="footer-brand-text">
+            VLSI Pathway offers instructor-led courses, hands-on labs and mentorship focused on semiconductor and VLSI design.
+          </p>
+          <div class="wrapper">
+            <span class="span">Email:</span>
+            <a href="mailto:vlsipathway@gmail.com" class="footer-link">vlsipathway@gmail.com</a>
+          </div>
+        </div>
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Important Sections</p>
+          </li>
+          <li>
+            <a href="./index.html#about" class="footer-link">About Us</a>
+          </li>
+          <li>
+            <a href="./refund.html" class="footer-link">Refund Policy</a>
+          </li>
+          <li>
+            <a href="./ship.html" class="footer-link">Shipping Info</a>
+          </li>
+          <li>
+            <a href="./contact.html" class="footer-link">Contact Us</a>
+          </li>
+        </ul>
+        <div class="footer-list">
+          <p class="footer-list-title">Social Links</p>
+          <ul class="social-list">
+            <li>
+              <a href="https://www.linkedin.com/in/vlsipathway/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@VLSIPATHWAY" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">© VLSI Pathway All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-top-btn" aria-label="back top top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
