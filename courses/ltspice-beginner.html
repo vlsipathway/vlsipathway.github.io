@@ -425,10 +425,9 @@
             </div>
         </div>
 
-        <div class="content-grid">
+       <div class="content-grid">
             <div class="main-content">
                 
-                <!-- CUSTOM SECURE VIDEO PLAYER -->
                 <div class="video-player-section free-preview">
                     <div class="video-title">Lecture 1: Who is this course for? (FREE PREVIEW)</div>
                     
@@ -453,30 +452,31 @@
                     </div>
                 </div>
 
-                <!-- Detailed Description Section -->
                 <div class="description-section">
                     <h3>Course Overview</h3>
                     <p>LTSpice is a free yet powerful circuit simulation tool widely used in electronics, VLSI, and IC design. Whether you are a student, researcher, or professional engineer, mastering LTSpice will strengthen your ability to design, analyze, and test electronic circuits.</p>
-                    <p>This course takes you on a step-by-step journey, starting from the fundamentals of LTSpice, building simple circuits, and performing essential analyses. You will then progress toward advanced topics, including MOSFET characterization, CMOS inverter analysis, and digital circuit implementation such as NAND, NOR, and Full Adder design using CMOS technology files.</p>
+                    <p>This course takes you on a step-by-step journey, starting from the fundamentals of LTSpice, building simple circuits, and performing essential analyses (.tran, .dc, .ac etc). You will then progress toward advanced topics, including MOSFET characterization using 180nm CMOS technology files, CMOS inverter analysis (VTC, Noise Margin), and the design of digital logic gates like NAND and NOR circuits.</p>
 
                     <h4>What You Will Be Able to Do:</h4>
                     <ul>
-                        <li>Create, customize, and simulate circuits in LTSpice</li>
-                        <li>Perform essential analyses (.op, .tran, .dc, .ac, .tf, .step, .temp)</li>
-                        <li>Build and analyze resistor networks and RC filters</li>
-                        <li>Work with model files and create custom symbols</li>
-                        <li>Characterize MOSFET devices using 180nm CMOS technology</li>
-                        <li>Design and simulate CMOS inverters, logic gates, and a full adder</li>
-                        <li>Apply LTSpice to practical projects like ring oscillators and op-amp circuits</li>
+                        <li>Create, customize, and simulate circuits in LTSpice with efficiency.</li>
+                        <li>Perform all essential SPICE analyses (.op, .tran, .dc, .ac, .tf, .step, .temp).</li>
+                        <li>Work with Model files and Technology files (e.g., CMOS 180nm PDK) to characterize devices.</li>
+                        <li>Analyze MOSFET characteristics (Id-Vgs, Id-Vds, gm, ro) from scratch.</li>
+                        <li>Design and comprehensively analyze CMOS inverter (DC/Transient response, Noise Margins).</li>
+                        <li>Design and simulate complex CMOS digital logic gates (NAND, NOR).</li>
+                        <li>Troubleshoot common simulation issues and efficiently find resources.</li>
                     </ul>
                 </div>
 
-                <!-- Curriculum Section (Simplified for display) -->
                 <div class="curriculum-section">
                     <h3>Comprehensive Course Curriculum (36 Lectures)</h3>
 
                     <div class="section-title">Section 1: Introduction</div>
-                    <!-- Lecture 1 is the video above -->
+                    <div class="module">
+                        <h4>Lecture 1: Who is this course for?</h4>
+                        <div class="module-details">Watch the free preview video above.</div>
+                    </div>
                     <div class="module">
                         <h4>Lecture 2: Prerequisites</h4>
                         <div class="module-details">Basic electronics knowledge, familiarity with circuits.</div>
@@ -494,7 +494,7 @@
                         <h4>Lecture 5: Creating your first schematic</h4>
                     </div>
                     <div class="module">
-                        <h4>Lecture 6: Toolbar and file menu basics</h4>
+                        <h4>Lecture 6: Toolbar and file menu basics (open, save, edit, etc.)</h4>
                     </div>
 
                     <div class="section-title">Section 3: Customization and Workflow</div>
@@ -502,23 +502,109 @@
                         <h4>Lecture 7: Customizing schematics and waveform viewer</h4>
                     </div>
                     <div class="module">
-                        <h4>Lecture 8: Control panel overview</h4>
+                        <h4>Lecture 8: Control panel overview (colors, fonts, preferences)</h4>
                     </div>
                     <div class="module">
                         <h4>Lecture 9: Efficient navigation & tips</h4>
                     </div>
 
-                    <div class="section-title">Section 4: Understanding Analysis Commands</div>
+                    <div class="section-title">Section 4: Understanding Analysis Commands (9 Lectures)</div>
                     <div class="module">
-                        <h4>Lecture 10-18: Various Analysis Types & Hands-on Examples</h4>
+                        <h4>Lecture 10: Introduction to analysis types</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 11: .op – Operating point analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 12: .tran – Transient analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 13: .dc – DC sweep</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 14: .step param – Parametric sweep</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 15: .tf – Transfer function analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 16: .ac – AC analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 17: .temp – Temperature sweep</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 18: Hands-on examples for each analysis</h4>
                     </div>
 
-                    <div class="section-title">Section 5-10: Advanced Topics</div>
+                    <div class="section-title">Section 5: Learning Through Simple Circuits</div>
                     <div class="module">
-                        <h4>Lectures 19-36: Learning circuits through MOSFETs, CMOS design, and practical applications</h4>
+                        <h4>Lecture 19: Design and Simulation of Resistive divider circuit</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 20: Design and SImulation of a RC low-pass filter</h4>
+                    </div>
+
+                    <div class="section-title">Section 6: Symbols, Models, and Libraries</div>
+                    <div class="module">
+                        <h4>Lecture 21: How to create a custom schematic symbol</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 22: Importing and using model files</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 23: Working with technology files (e.g., CMOS 180 nm PDK)</h4>
+                    </div>
+
+                    <div class="section-title">Section 7: MOSFETs and Advanced Circuits</div>
+                    <div class="module">
+                        <h4>Lecture 24: MOSFET characteristics using 180nm technology file</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 25: Plotting Id-Vgs, Id-Vds, gm, ro etc.</h4>
+                    </div>
+
+                    <div class="section-title">Section 8: CMOS Circuit Design in LTSpice</div>
+                    <div class="module">
+                        <h4>Lecture 26: CMOS Inverter design and analysis</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 27: DC transfer characteristics</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 28: Threshold voltage estimation</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 29: Noise margin calculation</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 30: Design and Simulation of CMOS logic gates (NAND, NOR etc)</h4>
+                    </div>
+
+                    <div class="section-title">Section 9: Resources and Extras</div>
+                    <div class="module">
+                        <h4>Lecture 31: Providing technology files (e.g., 180nm CMOS)</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 32: Recommended books and articles for deeper learning</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 33: Troubleshooting common LTSpice errors</h4>
+                    </div>
+
+                    <div class="section-title">Section 10: Wrap-Up</div>
+                    <div class="module">
+                        <h4>Lecture 34: Final thoughts</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 35: Real-world applications of LTSpice</h4>
+                    </div>
+                    <div class="module">
+                        <h4>Lecture 36: Next steps for learners (moving towards VLSI/Analog IC design)</h4>
                     </div>
                 </div>
             </div>
+
 
             <div class="sidebar">
                 <h3>Course Designed For</h3>
