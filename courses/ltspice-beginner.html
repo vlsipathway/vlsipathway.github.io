@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Title -->
     <title>Practical LTSpice: From Basics to CMOS Circuits - VLSI Pathway</title>
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: 'Inter', sans-serif; /* Using Inter font for modern look */
+            font-family: 'Poppins', sans-serif;
             background: #f5f5f5;
             padding: 20px;
         }
@@ -22,18 +20,17 @@
             margin: 0 auto;
         }
 
-        /* Color Scheme Variables (Updated for better contrast/visibility) */
+        /* Color Scheme - Matching Main Website */
         :root {
-            --primary-color: #4b6cb7; /* Rich Indigo/Blue for high visibility */
-            --primary-dark: #182848;  /* Deep Navy for high contrast in gradients */
+            --primary-color: #667eea;
+            --primary-dark: #764ba2;
             --primary-text: #333;
-            --secondary-bg: #e6e9f5; /* Light background for free preview */
+            --secondary-bg: #e8f5e9;
             --accent-green: #4caf50;
         }
 
-        /* Navbar Styling */
+        /* Navbar Styling - Matching Main Website */
         .navbar {
-            /* Updated Gradient for better white text visibility */
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
@@ -59,7 +56,6 @@
         }
         .navbar a:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Back Button */
@@ -92,10 +88,9 @@
             font-size: 36px;
         }
         .course-header h3 {
-             /* H3 text color is on white background, still looks great */
-             color: var(--primary-dark);
-             font-size: 22px;
-             margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 22px;
+            margin-bottom: 15px;
         }
         .course-header p {
             color: #666;
@@ -104,9 +99,8 @@
             line-height: 1.6;
         }
 
-        /* Price Section */
+        /* Price Section - Matching Website Style */
         .price-section {
-            /* Updated Gradient for better white text visibility */
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 30px;
@@ -117,14 +111,11 @@
             align-items: center;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
-        /* FIX: Explicit style for the access details text */
         .price-section p {
-            color: #ffffff; /* Ensures pure white */
-            font-weight: 500; /* Slightly bolder for better visibility */
-            font-size: 15px; /* Slightly larger for easier reading */
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 15px;
         }
-
         .price-section h3 {
             font-size: 32px;
             margin-bottom: 5px;
@@ -171,11 +162,19 @@
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
         }
+        .description-section h4 {
+            color: var(--primary-text);
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .description-section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
         .description-section ul {
             list-style: disc;
             margin-left: 20px;
-            padding-left: 0;
-            margin-top: 15px;
             color: #555;
         }
         .description-section li {
@@ -197,12 +196,12 @@
         }
         .section-title {
             color: var(--primary-dark);
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             margin-top: 25px;
             margin-bottom: 10px;
             padding: 8px 15px;
-            background: #f0f8ff; /* Light blue background for sections */
+            background: #f0f5ff;
             border-radius: 5px;
         }
         .module {
@@ -211,8 +210,6 @@
             background: #f9f9f9;
             border-radius: 5px;
             border-left: 4px solid var(--primary-color);
-            display: flex;
-            flex-direction: column;
         }
         .module h4 {
             color: var(--primary-text);
@@ -225,11 +222,11 @@
             font-size: 14px;
         }
 
-        /* Video Embed/Preview Lecture */
+        /* Video Container - SECURED */
         .video-embed-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             margin-top: 10px;
@@ -243,6 +240,7 @@
             height: 100%;
             border-radius: 5px;
         }
+
         .free-preview {
             background: var(--secondary-bg);
             padding: 15px;
@@ -296,17 +294,11 @@
                 width: 100%;
                 margin-top: 20px;
             }
-            .course-header {
-                padding: 20px;
-            }
-            .course-header h2 {
-                font-size: 28px;
-            }
         }
     </style>
 </head>
 <body>
-    <button class="back-btn" onclick="window.history.back()">← Back</button>
+    <button class="back-btn" onclick="goBack()">← Back</button>
 
     <div class="navbar">
         <h1>VLSI Pathway</h1>
@@ -315,15 +307,12 @@
 
     <div class="container">
         <div class="course-header">
-            <!-- Updated Course Title -->
             <h2>Practical LTSpice: From Basics to CMOS Circuits</h2>
-            <!-- Updated Course Subtitle -->
             <h3>Master circuit simulation and analysis for VLSI and IC design.</h3>
 
             <div class="price-section">
                 <div>
                     <h3>₹399</h3>
-                    <!-- Target text below -->
                     <p>Lifetime Access • 10 Sections • Certificate</p>
                 </div>
                 <button class="enroll-btn" onclick="initiatePayment()">Enroll Now</button>
@@ -337,7 +326,7 @@
                     <h3>Course Overview</h3>
                     <p>LTSpice is a free yet powerful circuit simulation tool widely used in electronics, VLSI, and IC design. Whether you are a student, researcher, or professional engineer, mastering LTSpice will strengthen your ability to design, analyze, and test electronic circuits.</p>
                     <p>This course takes you on a step-by-step journey, starting from the fundamentals of LTSpice, building simple circuits, and performing essential analyses. You will then progress toward advanced topics, including MOSFET characterization, CMOS inverter analysis, and digital circuit implementation such as NAND, NOR, and Full Adder design using CMOS technology files.</p>
-                    <p>The focus is practical learning — every concept is explained through examples, hands-on circuit design, and real-world applications. You’ll also gain access to technology files, reference materials, and troubleshooting tips to confidently work on your own projects.</p>
+                    <p>The focus is practical learning — every concept is explained through examples, hands-on circuit design, and real-world applications. You'll also gain access to technology files, reference materials, and troubleshooting tips to confidently work on your own projects.</p>
 
                     <h4>What You Will Be Able to Do:</h4>
                     <ul>
@@ -357,18 +346,14 @@
                 <div class="curriculum-section">
                     <h3>Comprehensive Course Curriculum (36 Lectures)</h3>
 
-                    <!-- Section 1 -->
                     <div class="section-title">Section 1: Introduction</div>
                     <div class="module free-preview">
-                        <!-- Embedded YouTube Video as the Free Preview Lecture -->
                         <h4>Lecture 1: Who is this course for? (FREE PREVIEW)</h4>
                         <div class="module-details">Watch this video to understand if this course aligns with your career goals.</div>
                         <div class="video-embed-container">
-                             <!-- YouTube Embed: https://youtu.be/c7rtyrGkND4 -->
-                            <!-- Setting controls=1, modestbranding=1, and removing fs=0 gives you basic controls, quality, and fullscreen, while discouraging sharing/downloading. -->
-                            <iframe src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0&controls=1&modestbranding=1&disablekb=1&showinfo=0" 
+                            <iframe src="https://www.youtube.com/embed/c7rtyrGkND4?rel=0&controls=1&modestbranding=1&fs=0&disablekb=1&showinfo=0" 
                                 frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope" 
                                 allowfullscreen>
                             </iframe>
                         </div>
@@ -382,7 +367,6 @@
                         <div class="module-details">What to expect and how to maximize your learning.</div>
                     </div>
 
-                    <!-- Section 2 -->
                     <div class="section-title">Section 2: Getting Started with LTSpice</div>
                     <div class="module">
                         <h4>Lecture 4: Downloading, setup, and introduction to the interface</h4>
@@ -394,7 +378,6 @@
                         <h4>Lecture 6: Toolbar and file menu basics (open, save, edit, etc.)</h4>
                     </div>
 
-                    <!-- Section 3 -->
                     <div class="section-title">Section 3: Customization and Workflow</div>
                     <div class="module">
                         <h4>Lecture 7: Customizing schematics and waveform viewer</h4>
@@ -406,7 +389,6 @@
                         <h4>Lecture 9: Efficient navigation & tips</h4>
                     </div>
 
-                    <!-- Section 4 -->
                     <div class="section-title">Section 4: Understanding Analysis Commands</div>
                     <div class="module">
                         <h4>Lecture 10: Introduction to analysis types</h4>
@@ -436,7 +418,6 @@
                         <h4>Lecture 18: Hands-on examples for each analysis</h4>
                     </div>
 
-                    <!-- Section 5 -->
                     <div class="section-title">Section 5: Learning Through Simple Circuits</div>
                     <div class="module">
                         <h4>Lecture 19: Design and Simulation of Resistive divider circuit</h4>
@@ -445,7 +426,6 @@
                         <h4>Lecture 20: Design and Simulation of a RC low-pass filter</h4>
                     </div>
 
-                    <!-- Section 6 -->
                     <div class="section-title">Section 6: Symbols, Models, and Libraries</div>
                     <div class="module">
                         <h4>Lecture 21: How to create a custom schematic symbol</h4>
@@ -457,7 +437,6 @@
                         <h4>Lecture 23: Working with technology files (e.g., CMOS 180 nm PDK)</h4>
                     </div>
 
-                    <!-- Section 7 -->
                     <div class="section-title">Section 7: MOSFETs and Advanced Circuits</div>
                     <div class="module">
                         <h4>Lecture 24: MOSFET characteristics using 180nm technology file</h4>
@@ -466,7 +445,6 @@
                         <h4>Lecture 25: Plotting Id-Vgs, Id-Vds, gm, ro etc.</h4>
                     </div>
 
-                    <!-- Section 8 -->
                     <div class="section-title">Section 8: CMOS Circuit Design in LTSpice</div>
                     <div class="module">
                         <h4>Lecture 26: CMOS Inverter design and analysis</h4>
@@ -484,7 +462,6 @@
                         <h4>Lecture 30: Design and Simulation of CMOS logic gates (NAND, NOR etc)</h4>
                     </div>
 
-                    <!-- Section 9 -->
                     <div class="section-title">Section 9: Resources and Extras</div>
                     <div class="module">
                         <h4>Lecture 31: Providing technology files (e.g., 180nm CMOS)</h4>
@@ -496,7 +473,6 @@
                         <h4>Lecture 33: Troubleshooting common LTSpice errors</h4>
                     </div>
 
-                    <!-- Section 10 -->
                     <div class="section-title">Section 10: Wrap-Up</div>
                     <div class="module">
                         <h4>Lecture 34: Final thoughts</h4>
@@ -573,18 +549,14 @@
         </div>
     </div>
 
-    <!-- Payment and IonIcons Scripts -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         const RAZORPAY_KEY = 'rzp_test_RS6oUVhJjDrJt';
         const COURSE_ID = 'LTSPICE';
-        const PRICE = 39900; // in paise (₹399 = 39900 paise)
+        const PRICE = 39900;
 
-        // Custom alert function to replace 'alert()'
-        function showCustomAlert(message) {
-            console.log("Custom Alert: " + message);
-            // In a real application, you'd show a modal here.
-            // For now, we'll log it.
+        function goBack() {
+            window.location.href = '../index.html';
         }
 
         function initiatePayment() {
@@ -596,10 +568,7 @@
                 description: 'Practical LTSpice: From Basics to CMOS Circuits',
                 image: '../assets/images/logo-light (2).svg',
                 handler: function(response) {
-                    // Payment successful
-                    showCustomAlert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
-                    // You'll integrate email sending here later
-                    // Redirect to login/content page
+                    alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
                     window.location.href = './login.html';
                 },
                 prefill: {
@@ -607,19 +576,18 @@
                     contact: ''
                 },
                 theme: {
-                    color: '#4b6cb7' /* Updated theme color */
+                    color: '#667eea'
                 }
             };
 
             const rzp = new Razorpay(options);
             rzp.on('payment.failed', function(response){
-                showCustomAlert('Payment failed: ' + response.error.description);
+                alert('Payment failed: ' + response.error.description);
             });
             rzp.open();
         }
     </script>
 
-    <!-- IonIcons for sidebar icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
