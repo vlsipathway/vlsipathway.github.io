@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LT Spice: Beginner to Advanced - VLSI Pathway</title>
+    <title>Practical LTSpice Course - VLSI Pathway</title>
     <style>
         * {
             margin: 0;
@@ -11,12 +11,25 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: #f5f5f5;
             padding: 20px;
         }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        :root {
+            --primary-color: #4b6cb7;
+            --primary-dark: #182848;
+            --primary-text: #333;
+            --secondary-bg: #e6e9f5;
+            --accent-green: #4caf50;
+        }
+
         .navbar {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -30,7 +43,7 @@
         }
         .navbar button {
             background: white;
-            color: #667eea;
+            color: var(--primary-color);
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -41,92 +54,7 @@
         .navbar button:hover {
             transform: translateY(-2px);
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .course-header {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .course-header h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .course-header p {
-            color: #666;
-            margin-bottom: 10px;
-        }
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        .video-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .video-section h3 {
-            color: #333;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
-        }
-        .video-item {
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .video-item:hover {
-            background: #f0f0f0;
-        }
-        .video-item h4 {
-            color: #667eea;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        .video-item p {
-            color: #666;
-            font-size: 12px;
-        }
-        .player-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            sticky: position: sticky;
-            top: 20px;
-        }
-        .player-section h3 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .video-placeholder {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #000;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        .video-title {
-            color: #333;
-            font-size: 14px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+
         .back-btn {
             background: #e0e0e0;
             color: #333;
@@ -141,54 +69,265 @@
         .back-btn:hover {
             transform: translateY(-2px);
         }
-        @media (max-width: 768px) {
+
+        .course-header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-header h2 {
+            color: var(--primary-text);
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .course-header p {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+        }
+
+        /* Video List Section */
+        .video-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .video-section h3 {
+            color: var(--primary-text);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .section-title {
+            color: var(--primary-dark);
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: #f0f5ff;
+            border-radius: 5px;
+        }
+
+        .video-item {
+            margin-bottom: 12px;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .video-item:hover {
+            background: #e8f0ff;
+            transform: translateX(5px);
+        }
+        .video-item.active {
+            background: var(--secondary-bg);
+            border-left: 4px solid var(--accent-green);
+        }
+        .video-item h4 {
+            color: var(--primary-text);
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .video-item p {
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Player Section */
+        .player-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+        }
+        .player-section h3 {
+            color: var(--primary-text);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .video-title {
+            color: var(--primary-text);
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .video-description {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .video-description p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
             .content-grid {
                 grid-template-columns: 1fr;
             }
             .player-section {
                 position: static;
             }
+            .video-section {
+                max-height: 400px;
+            }
         }
     </style>
 </head>
 <body>
-    <button class="back-btn" onclick="window.history.back()">← Back to Dashboard</button>
+    <button class="back-btn" onclick="goToDashboard()">← Back to Dashboard</button>
     
     <div class="navbar">
-        <h1>LT Spice: Beginner to Advanced</h1>
+        <h1>Practical LTSpice: From Basics to CMOS Circuits</h1>
         <button onclick="logout()">Logout</button>
     </div>
 
     <div class="container">
         <div class="course-header">
-            <h2>LT Spice: Beginner to Advanced Level</h2>
+            <h2>Full Course Access</h2>
             <p><strong>Instructor:</strong> VLSI Pathway Team</p>
-            <p><strong>Duration:</strong> 12 weeks | <strong>Level:</strong> Beginner to Advanced</p>
+            <p><strong>Duration:</strong> 3-4 weeks (Self-paced) | <strong>Total Lectures:</strong> 36</p>
+            <p><strong>Level:</strong> Beginner to Advanced | <strong>Sections:</strong> 10</p>
         </div>
 
         <div class="content-grid">
+            <!-- Video List Sidebar -->
             <div class="video-section">
-                <h3>Course Content</h3>
+                <h3>📚 Course Content (36 Lectures)</h3>
                 <div id="videoList"></div>
             </div>
 
+            <!-- Video Player -->
             <div class="player-section">
                 <h3>Now Playing</h3>
-                <div class="video-placeholder">Video Player</div>
-                <div class="video-title" id="currentVideoTitle">Select a video to play</div>
-                <div id="videoContainer"></div>
+                <div id="videoPlayerContainer">
+                    <div class="video-placeholder">
+                        Select a lecture to begin
+                    </div>
+                </div>
+                <div class="video-title" id="currentVideoTitle">No video selected</div>
+                
+                <div class="video-description" id="videoDescription" style="display:none;">
+                    <p id="descriptionText"></p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Course videos - Replace these YouTube links with your actual private video links
+        // Complete Course Videos - Replace VIDEO_ID_X with actual YouTube video IDs
         const courseVideos = [
-            { id: 1, title: 'Module 1: Introduction to LT Spice', duration: '15 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_1' },
-            { id: 2, title: 'Module 2: Circuit Basics', duration: '20 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_2' },
-            { id: 3, title: 'Module 3: Simulation Setup', duration: '25 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_3' },
-            { id: 4, title: 'Module 4: Advanced Simulations', duration: '30 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_4' },
-            { id: 5, title: 'Module 5: Practical Projects', duration: '35 min', videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_5' },
+            // Section 1: Introduction
+            { section: 'Section 1: Introduction', title: 'Lecture 1: Who is this course for?', duration: '2:11', videoId: 'c7rtyrGkND4', description: 'Understanding the target audience and course objectives.' },
+            { section: 'Section 1: Introduction', title: 'Lecture 2: Prerequisites', duration: '5 min', videoId: 'VIDEO_ID_2', description: 'Basic electronics knowledge required for this course.' },
+            { section: 'Section 1: Introduction', title: 'Lecture 3: Course Roadmap', duration: '7 min', videoId: 'VIDEO_ID_3', description: 'Complete overview of what you will learn.' },
+
+            // Section 2: Getting Started
+            { section: 'Section 2: Getting Started with LTSpice', title: 'Lecture 4: Downloading & Setup', duration: '10 min', videoId: 'VIDEO_ID_4', description: 'Download, installation, and interface introduction.' },
+            { section: 'Section 2: Getting Started with LTSpice', title: 'Lecture 5: Creating First Schematic', duration: '12 min', videoId: 'VIDEO_ID_5', description: 'Build your first circuit schematic.' },
+            { section: 'Section 2: Getting Started with LTSpice', title: 'Lecture 6: Toolbar & File Menu Basics', duration: '8 min', videoId: 'VIDEO_ID_6', description: 'Learn essential toolbar functions and file operations.' },
+
+            // Section 3: Customization
+            { section: 'Section 3: Customization and Workflow', title: 'Lecture 7: Customizing Schematics', duration: '10 min', videoId: 'VIDEO_ID_7', description: 'Customize waveform viewer and schematic appearance.' },
+            { section: 'Section 3: Customization and Workflow', title: 'Lecture 8: Control Panel Overview', duration: '8 min', videoId: 'VIDEO_ID_8', description: 'Configure colors, fonts, and preferences.' },
+            { section: 'Section 3: Customization and Workflow', title: 'Lecture 9: Efficient Navigation', duration: '6 min', videoId: 'VIDEO_ID_9', description: 'Tips for efficient workflow and navigation.' },
+
+            // Section 4: Analysis Commands
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 10: Introduction to Analysis Types', duration: '8 min', videoId: 'VIDEO_ID_10', description: 'Overview of different SPICE analysis commands.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 11: .op Analysis', duration: '12 min', videoId: 'VIDEO_ID_11', description: 'Operating point analysis in detail.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 12: .tran Analysis', duration: '15 min', videoId: 'VIDEO_ID_12', description: 'Transient analysis for time-domain simulations.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 13: .dc Sweep', duration: '12 min', videoId: 'VIDEO_ID_13', description: 'DC sweep analysis technique.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 14: .step param', duration: '10 min', videoId: 'VIDEO_ID_14', description: 'Parametric sweep for multiple simulations.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 15: .tf Analysis', duration: '8 min', videoId: 'VIDEO_ID_15', description: 'Transfer function analysis.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 16: .ac Analysis', duration: '12 min', videoId: 'VIDEO_ID_16', description: 'AC analysis for frequency response.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 17: .temp Sweep', duration: '10 min', videoId: 'VIDEO_ID_17', description: 'Temperature sweep analysis.' },
+            { section: 'Section 4: Understanding Analysis Commands', title: 'Lecture 18: Hands-on Examples', duration: '20 min', videoId: 'VIDEO_ID_18', description: 'Practical examples of all analysis types.' },
+
+            // Section 5: Simple Circuits
+            { section: 'Section 5: Learning Through Simple Circuits', title: 'Lecture 19: Resistive Divider Circuit', duration: '12 min', videoId: 'VIDEO_ID_19', description: 'Design and simulate resistive divider.' },
+            { section: 'Section 5: Learning Through Simple Circuits', title: 'Lecture 20: RC Low-Pass Filter', duration: '15 min', videoId: 'VIDEO_ID_20', description: 'Build and analyze RC filter circuit.' },
+
+            // Section 6: Symbols & Models
+            { section: 'Section 6: Symbols, Models, and Libraries', title: 'Lecture 21: Custom Schematic Symbol', duration: '12 min', videoId: 'VIDEO_ID_21', description: 'Create custom symbols for components.' },
+            { section: 'Section 6: Symbols, Models, and Libraries', title: 'Lecture 22: Importing Model Files', duration: '10 min', videoId: 'VIDEO_ID_22', description: 'Work with SPICE model files.' },
+            { section: 'Section 6: Symbols, Models, and Libraries', title: 'Lecture 23: Technology Files', duration: '15 min', videoId: 'VIDEO_ID_23', description: 'Using CMOS 180nm PDK technology files.' },
+
+            // Section 7: MOSFETs
+            { section: 'Section 7: MOSFETs and Advanced Circuits', title: 'Lecture 24: MOSFET Characteristics', duration: '18 min', videoId: 'VIDEO_ID_24', description: 'Characterize MOSFETs using 180nm technology.' },
+            { section: 'Section 7: MOSFETs and Advanced Circuits', title: 'Lecture 25: Plotting Device Parameters', duration: '15 min', videoId: 'VIDEO_ID_25', description: 'Plot Id-Vgs, Id-Vds, gm, ro curves.' },
+
+            // Section 8: CMOS Design
+            { section: 'Section 8: CMOS Circuit Design', title: 'Lecture 26: CMOS Inverter Design', duration: '20 min', videoId: 'VIDEO_ID_26', description: 'Complete CMOS inverter design and analysis.' },
+            { section: 'Section 8: CMOS Circuit Design', title: 'Lecture 27: DC Transfer Characteristics', duration: '15 min', videoId: 'VIDEO_ID_27', description: 'Analyze VTC of CMOS inverter.' },
+            { section: 'Section 8: CMOS Circuit Design', title: 'Lecture 28: Threshold Voltage', duration: '12 min', videoId: 'VIDEO_ID_28', description: 'Estimate threshold voltage from VTC.' },
+            { section: 'Section 8: CMOS Circuit Design', title: 'Lecture 29: Noise Margin Calculation', duration: '15 min', videoId: 'VIDEO_ID_29', description: 'Calculate noise margins for CMOS circuits.' },
+            { section: 'Section 8: CMOS Circuit Design', title: 'Lecture 30: CMOS Logic Gates', duration: '25 min', videoId: 'VIDEO_ID_30', description: 'Design NAND, NOR gates using CMOS.' },
+
+            // Section 9: Resources
+            { section: 'Section 9: Resources and Extras', title: 'Lecture 31: Technology Files Provided', duration: '10 min', videoId: 'VIDEO_ID_31', description: 'Access to 180nm CMOS technology files.' },
+            { section: 'Section 9: Resources and Extras', title: 'Lecture 32: Recommended Books', duration: '8 min', videoId: 'VIDEO_ID_32', description: 'Books and articles for deeper learning.' },
+            { section: 'Section 9: Resources and Extras', title: 'Lecture 33: Troubleshooting Errors', duration: '12 min', videoId: 'VIDEO_ID_33', description: 'Common LTSpice errors and solutions.' },
+
+            // Section 10: Wrap-Up
+            { section: 'Section 10: Wrap-Up', title: 'Lecture 34: Final Thoughts', duration: '8 min', videoId: 'VIDEO_ID_34', description: 'Course summary and key takeaways.' },
+            { section: 'Section 10: Wrap-Up', title: 'Lecture 35: Real-World Applications', duration: '12 min', videoId: 'VIDEO_ID_35', description: 'Industry applications of LTSpice.' },
+            { section: 'Section 10: Wrap-Up', title: 'Lecture 36: Next Steps', duration: '10 min', videoId: 'VIDEO_ID_36', description: 'Continue your journey in VLSI/Analog IC design.' }
         ];
 
         window.addEventListener('load', () => {
@@ -200,39 +339,90 @@
                 return;
             }
 
-            // Load video list
+            // Load video list with sections
             const videoList = document.getElementById('videoList');
-            courseVideos.forEach(video => {
+            let currentSection = '';
+
+            courseVideos.forEach((video, index) => {
+                // Add section header if new section
+                if (video.section !== currentSection) {
+                    const sectionHeader = document.createElement('div');
+                    sectionHeader.className = 'section-title';
+                    sectionHeader.textContent = video.section;
+                    videoList.appendChild(sectionHeader);
+                    currentSection = video.section;
+                }
+
+                // Add video item
                 const videoItem = document.createElement('div');
                 videoItem.className = 'video-item';
+                videoItem.id = `video-${index}`;
                 videoItem.innerHTML = `
                     <h4>${video.title}</h4>
                     <p>${video.duration}</p>
                 `;
-                videoItem.onclick = () => playVideo(video);
+                videoItem.onclick = () => playVideo(video, index);
                 videoList.appendChild(videoItem);
             });
 
             // Load first video by default
-            playVideo(courseVideos[0]);
+            playVideo(courseVideos[0], 0);
         });
 
-        function playVideo(video) {
+        function playVideo(video, index) {
+            // Update active state
+            document.querySelectorAll('.video-item').forEach(item => item.classList.remove('active'));
+            document.getElementById(`video-${index}`).classList.add('active');
+
+            // Update video title
             document.getElementById('currentVideoTitle').textContent = video.title;
-            const videoContainer = document.getElementById('videoContainer');
-            videoContainer.innerHTML = `
-                <iframe width="100%" height="315" src="${video.videoUrl}" 
-                    title="${video.title}" frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
+
+            // Show description
+            const descBox = document.getElementById('videoDescription');
+            const descText = document.getElementById('descriptionText');
+            descText.textContent = video.description;
+            descBox.style.display = 'block';
+
+            // Load video player
+            const playerContainer = document.getElementById('videoPlayerContainer');
+            playerContainer.innerHTML = `
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/${video.videoId}?rel=0&controls=1&modestbranding=1&disablekb=1&showinfo=0&iv_load_policy=3" 
+                        title="${video.title}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             `;
+
+            // Scroll player into view on mobile
+            if (window.innerWidth <= 900) {
+                document.querySelector('.player-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function goToDashboard() {
+            window.location.href = './dashboard.html';
         }
 
         function logout() {
             sessionStorage.clear();
             window.location.href = './login.html';
         }
+
+        // Prevent right-click on video
+        document.addEventListener('contextmenu', (e) => {
+            if (e.target.closest('.video-container')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Security console warning
+        console.log('%c⚠️ SECURITY NOTICE', 'color: red; font-size: 20px; font-weight: bold;');
+        console.log('%cUnauthorized recording or sharing of this content is prohibited.', 'color: red; font-size: 14px;');
     </script>
 </body>
 </html>
