@@ -79,6 +79,31 @@
         .login-btn:active {
             transform: translateY(0);
         }
+        /* New CSS for Home button */
+        .home-btn {
+            display: block; /* Make it a block-level element */
+            width: 100%;
+            text-align: center;
+            padding: 12px;
+            margin-top: 15px; /* Added spacing from the Login button */
+            background-color: #f0f0f0; /* Lighter background for differentiation */
+            color: #667eea; /* Color matching the gradient's start color */
+            border: 2px solid #667eea; /* Border matching the color */
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none; /* Remove underline from anchor tag */
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .home-btn:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        .home-btn:active {
+            transform: translateY(0);
+        }
+        /* End of New CSS */
         .message {
             margin-top: 20px;
             padding: 12px;
@@ -103,25 +128,7 @@
             color: #667eea;
             margin-top: 10px;
         }
-        .loading {
-            display: none;
-            text-align: center;
-            color: #667eea;
-            margin-top: 10px;
-        }
-        .back-home {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #667eea;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        .back-home:hover {
-            color: #764ba2;
-        }
+
     </style>
 </head>
 <body>
@@ -145,7 +152,9 @@
             <div class="loading" id="loading">Loading...</div>
             <div class="message" id="message"></div>
         </form>
-    </div>
+
+        <a href="https://vlsipathway.com" class="home-btn">Go to Home</a>
+        </div>
 
     <script>
       const GAS_URL = 'https://script.google.com/macros/s/AKfycbyHo95yeVqdSaK_GwX2ooc1VadGtclcTDm9uW3cTrU7HfgrJtLYIx5ny38v9dwoMU6MKQ/exec';
