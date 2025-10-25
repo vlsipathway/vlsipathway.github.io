@@ -1,175 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Guide - VLSI Pathway</title>
-    
-    <style>
-        /* Define the primary font and colors for consistency */
-        :root {
-            --primary-color: #1abc9c; /* Teal/Green accent color */
-            --text-color: #333;
-            --heading-color: #2c3e50;
-            --max-width: 900px;
-        }
+<div class="guide-container">
+  <h1>Course Purchase Guide</h1>
 
-        /* Basic Reset and Body Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: white; 
-            margin: 0;
-            padding: 0;
-        }
+  <p>
+    Getting started with your VLSI learning journey is simple. Follow these quick steps to enroll in a course and access your personalized learning dashboard on VLSI Pathway.
+  </p>
 
-        /* Main Container for Responsiveness */
-        .guide-container {
-            max-width: var(--max-width);
-            margin: 0 auto; 
-            padding: 30px 20px;
-        }
+  <ul class="step-list">
+    <li>
+      <strong>Step 1: Explore and Select a Course</strong>
+      Visit <a href="https://www.vlsipathway.com">www.vlsipathway.com</a> and browse through our available programs. 
+      Each course page provides details about the syllabus, tools covered, projects, and learning outcomes — 
+      helping you choose the one that aligns with your academic or professional goals.
+    </li>
 
-        /* Headings Styling */
-        h1 {
-            color: var(--heading-color); 
-            font-size: 2.2em;
-            font-weight: 700;
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-        }
+    <li>
+      <strong>Step 2: Click “Enroll Now”</strong>
+      Once you’ve selected a course, click on the “Enroll Now” button. 
+      You’ll be redirected to a secure checkout page to confirm your enrollment.
+    </li>
 
-        h2 {
-            color: var(--primary-color); 
-            font-size: 1.5em;
-            font-weight: 600;
-            margin-top: 40px;
-            margin-bottom: 15px;
-        }
-        
-        /* Step-by-Step Styling (Ordered List) */
-        .step-list {
-            list-style-type: none; /* Remove default numbering */
-            counter-reset: step-counter;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .step-list li {
-            counter-increment: step-counter;
-            margin-bottom: 35px;
-            padding-left: 70px; /* Space for the counter badge */
-            position: relative;
-            min-height: 50px;
-        }
-        
-        .step-list li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            background-color: var(--primary-color);
-            color: white;
-            font-size: 1.5em;
-            font-weight: 700;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
+    <li>
+      <strong>Step 3: Complete Secure Payment</strong>
+      Fill in your details and complete the transaction using a major debit/credit card or other supported payment options. 
+      All transactions are processed through trusted gateways to ensure your security.
+    </li>
 
-        .step-list strong {
-            display: block;
-            font-size: 1.2em;
-            color: var(--heading-color);
-            margin-bottom: 5px;
-        }
+    <li>
+      <strong>Step 4: Receive Confirmation Email</strong>
+      After a successful payment, you’ll receive a confirmation email containing your receipt and login credentials for your VLSI Pathway account. 
+      Please check your inbox (and spam folder) for this email.
+    </li>
 
-        /* Emphasis and Links */
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+    <li>
+      <strong>Step 5: Access Your Dashboard</strong>
+      Go to the “Student Login” section on our website and enter your credentials. 
+      Your personal dashboard will display all your enrolled courses and resources.
+    </li>
 
-        a:hover {
-            color: #16a085;
-        }
+    <li>
+      <strong>Step 6: Begin Learning</strong>
+      Start exploring your course modules, video sessions, and lab materials. 
+      Apply your knowledge through hands-on projects and exercises designed to help you master key VLSI concepts. 
+      Welcome to your learning journey! 🚀
+    </li>
+  </ul>
 
-        /* Media Query for Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .guide-container {
-                padding: 20px 15px;
-            }
-            h1 {
-                font-size: 1.8em;
-                padding-bottom: 10px;
-            }
-            .step-list li {
-                padding-left: 55px;
-            }
-            .step-list li::before {
-                width: 35px;
-                height: 35px;
-                font-size: 1.2em;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="guide-container">
-        <h1>Simple Purchase Guide</h1>
-
-        <p>
-            Ready to master VLSI design? Follow these simple steps to enroll in a course and gain instant access to your learning path on VLSI Pathway.
-        </p>
-        
-        <ul class="step-list">
-            <li>
-                <strong>Step 1: Choose Your Course</strong>
-                Explore our courses on the <a href="www.vlsipathway.com" > www.vlsipathway.com </a>. Click on any course to review the detailed curriculum, project list, and prerequisites to find the program that best fits your career goals.
-            </li>
-            
-            <li>
-                <strong>Step 2: Proceed to Payment</strong>
-                On the course page, click the "Enroll Now" button. You will be redirected immediately to the secure payment processing page to finalize your purchase.
-            </li>
-            
-            <li>
-                <strong>Step 3: Complete Secure Checkout</strong>
-                Fill in your details and complete the transaction using any major credit/debit card or standard payment methods. Once payment is successful, you will proceed to the next step.
-            </li>
-            
-            <li>
-                <strong>Step 4: Receive Credentials via Email</strong>
-                Immediately after a successful payment, you will receive an "email confirmation" which includes your receipt and your "login credentials" (username and password) for the Student Dashboard.
-            </li>
-            
-            <li>
-                <strong>Step 5: Log In to Your Dashboard</strong>
-                Click on the "Student Login" button on our website (usually in the header). Use the credentials received in your email to securely log in to your personalized dashboard.
-            </li>
-            
-            <li>
-                <strong>Step 6: Start Learning!</strong>
-                Your "Student Dashboard" will now display the course(s) you have purchased. Click on the course title to access all video lectures, lab materials, projects, and mentorship resources. Happy learning! 🚀
-            </li>
-        </ul>
-
-        <h2 id="support">Need Help with Your Order?</h2>
-        <p>
-            If you encounter any issues during the checkout process, haven't received your credentials, or have questions about course access, please contact our support team.
-        </p>
-        <p>
-            Contact Support: <a href="mailto:vlsipathway@gmail.com">vlsipathway@gmail.com</a>
-        </p>
-    </div>
-
-</body>
-</html>
+  <h2 id="support">Need Help or Assistance?</h2>
+  <p>
+    If you experience any issues during checkout, haven’t received your confirmation email, or need help accessing your dashboard, we’re here to assist you.
+  </p>
+  <p>
+    Contact Support: <a href="mailto:vlsipathway@gmail.com">vlsipathway@gmail.com</a>
+  </p>
+</div>
